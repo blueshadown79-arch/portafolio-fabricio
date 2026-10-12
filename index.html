@@ -5,1187 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fabricio Jeremy Albarracín Sotelo — Practicante de Marketing · Portafolio 2026</title>
 
-  <!-- Google Fonts: Instrument Sans & Plus Jakarta Sans -->
+  <!-- Google Fonts: Instrument Sans & Plus Jakarta Sans con font-display: swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg-dark: #030307;
-      --ink: #ffffff;
-      --ink-muted: #94a3b8;
-      --ink-light: #64748b;
-      --accent-green: #10b981;
-      --accent-blue: #38bdf8;
-      --accent-purple: #c084fc;
-      --radius-pill: 100px;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       CURSOR OFICIAL DE TU PORTAFOLIO (CON DESTELLO SPARK)
-       ═══════════════════════════════════════════════════════════════════ */
-    body, a, button, input, select {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cfilter id='g'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='0.6'/%3E%3C/filter%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='rgba(0,0,0,0.55)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 4 1, auto !important;
-    }
-
-    a, button, .play-circle, .carousel-arrow, .video-bubble, .mirror-pill, .mirror-btn-contactame, .btn-mirror-tiktok, .btn-mirror-sound, .bg-toggle-pill {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cfilter id='g'%3E%3CfeGaussianBlur in='SourceGraphic' stdDeviation='0.6'/%3E%3C/filter%3E%3Cg filter='url(%23g)'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='rgba(0,0,0,0.55)' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/g%3E%3C/svg%3E") 4 1, pointer !important;
-    }
-
-    body {
-      background-color: var(--bg-dark);
-      color: var(--ink);
-      font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.5;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       FONDO DINÁMICO: OBSIDIAN BLACK & AMBIENT AURA PROFESIONAL
-       ═══════════════════════════════════════════════════════════════════ */
-    .space-canvas-wrapper {
-      position: fixed;
-      inset: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-      background: 
-        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(99, 102, 241, 0.12) 0%, transparent 65%),
-        radial-gradient(ellipse 70% 50% at 85% 30%, rgba(168, 85, 247, 0.09) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 50% at 15% 45%, rgba(56, 189, 248, 0.07) 0%, transparent 60%),
-        #030307;
-    }
-
-    #spaceCanvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .space-vignette {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, transparent 35%, rgba(4, 6, 15, 0.75) 85%, #04060f 100%);
-      pointer-events: none;
-    }
-
-    #cursor-light {
-      position: fixed;
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, rgba(147, 197, 253, 0.08) 0%, transparent 65%);
-      border-radius: 50%;
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      mix-blend-mode: screen;
-      transition: opacity 0.3s ease;
-    }
-
-    .container {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding-left: clamp(1.25rem, 5vw, 3rem);
-      padding-right: clamp(1.25rem, 5vw, 3rem);
-      position: relative;
-      z-index: 10;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       BOTONES CON EFECTO ESPEJO / CRISTALINO LÍQUIDO (BLUR REAL)
-       ═══════════════════════════════════════════════════════════════════ */
-    .mirror-pill {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(24px) saturate(190%);
-      -webkit-backdrop-filter: blur(24px) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.4),
-        inset 0 1px 1px rgba(255, 255, 255, 0.4),
-        inset 0 -1px 1px rgba(255, 255, 255, 0.05);
-      color: #ffffff;
-      padding: 0.6rem 1.4rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-      white-space: nowrap;
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    .mirror-pill::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -120%;
-      width: 70%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-      transform: skewX(-25deg);
-      transition: left 0.6s ease;
-      pointer-events: none;
-    }
-
-    .mirror-pill:hover::before {
-      left: 150%;
-    }
-
-    .mirror-pill:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.38);
-      box-shadow: 
-        0 12px 30px rgba(0, 0, 0, 0.55),
-        0 0 25px rgba(255, 255, 255, 0.15),
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.65);
-      transform: translateY(-2px) scale(1.02);
-      color: #ffffff;
-    }
-
-    /* Botón CONTACTAME Espejo Verde */
-    .mirror-btn-contactame {
-      background: rgba(37, 211, 102, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      color: #000000;
-      padding: 0.65rem 1.6rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.88rem;
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      box-shadow: 
-        0 8px 24px rgba(37, 211, 102, 0.38),
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.7);
-      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-      white-space: nowrap;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mirror-btn-contactame:hover {
-      background: rgba(37, 211, 102, 1);
-      box-shadow: 
-        0 12px 32px rgba(37, 211, 102, 0.55),
-        0 0 30px rgba(37, 211, 102, 0.4);
-      transform: translateY(-2px) scale(1.03);
-    }
-
-    .btn-mirror-tiktok {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.85);
-      backdrop-filter: blur(16px);
-      color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 6px 18px rgba(0, 0, 0, 0.4),
-        inset 0 1px 1px rgba(255, 255, 255, 0.5);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .btn-mirror-tiktok:hover {
-      transform: translateY(-2px) scale(1.08);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), -3px 3px 15px rgba(37,244,238,0.4), 3px -3px 15px rgba(254,44,85,0.4);
-    }
-
-    /* Botón Toggle de Sonido Háptico */
-    .btn-mirror-sound {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      color: #ffffff;
-      padding: 0.55rem 0.95rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      transition: all 0.25s cubic-bezier(0.2, 1, 0.3, 1);
-      user-select: none;
-    }
-    .btn-mirror-sound:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.35);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(168, 85, 247, 0.25);
-    }
-    .btn-mirror-sound .sound-bars-icon {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      height: 12px;
-    }
-    .btn-mirror-sound .sound-bars-icon span {
-      width: 2.5px;
-      height: 100%;
-      background: #c084fc;
-      border-radius: 2px;
-      transition: all 0.2s ease;
-      animation: soundBarWave 0.8s ease-in-out infinite alternate;
-    }
-    .btn-mirror-sound .sound-bars-icon span:nth-child(1) { animation-delay: 0.1s; height: 60%; }
-    .btn-mirror-sound .sound-bars-icon span:nth-child(2) { animation-delay: 0.3s; height: 100%; }
-    .btn-mirror-sound .sound-bars-icon span:nth-child(3) { animation-delay: 0.2s; height: 75%; }
-    .btn-mirror-sound.is-muted .sound-bars-icon span {
-      animation: none !important;
-      height: 3px !important;
-      background: #64748b !important;
-    }
-    .btn-mirror-sound.is-muted {
-      color: #94a3b8;
-      border-color: rgba(255, 255, 255, 0.08);
-      opacity: 0.7;
-    }
-    @keyframes soundBarWave {
-      0% { transform: scaleY(0.4); }
-      100% { transform: scaleY(1.2); }
-    }
-
-    /* CV Button Premium */
-    .premium-cv-btn {
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02));
-      border: 1px solid rgba(251, 191, 36, 0.4);
-      box-shadow: 0 8px 25px rgba(251, 191, 36, 0.15), inset 0 1px 1px rgba(255,255,255,0.3);
-      color: #fbbf24 !important;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .premium-cv-btn::before {
-      content: "";
-      position: absolute;
-      top: 0; left: -100%; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.4), transparent);
-      transform: skewX(-25deg);
-      animation: shineBtn 3s infinite;
-    }
-
-    @keyframes shineBtn {
-      0% { left: -100%; }
-      20% { left: 200%; }
-      100% { left: 200%; }
-    }
-
-    .premium-cv-btn:hover {
-      background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-      border-color: rgba(251, 191, 36, 0.8);
-      box-shadow: 0 12px 30px rgba(251, 191, 36, 0.3), inset 0 1px 1px rgba(255,255,255,0.5);
-      color: #fcd34d !important;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       TOP NAVBAR LIMPIO (CON CONMUTADOR DISCRETO FONDO 1 / FONDO 2)
-       ═══════════════════════════════════════════════════════════════════ */
-    .top-nav-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding-top: 1.8rem;
-      padding-bottom: 1.8rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      flex-wrap: wrap;
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand-name {
-      font-size: 1.25rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(110deg, #ffffff 40%, #93c5fd 50%, #ffffff 60%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: shineName 4s linear infinite;
-    }
-
-    @keyframes shineName {
-      to { background-position: 200% center; }
-    }
-
-    .brand-badge {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(12px);
-      color: var(--ink-muted);
-      font-size: 0.68rem;
-      font-weight: 800;
-      padding: 3px 12px;
-      border-radius: var(--radius-pill);
-      letter-spacing: 0.06em;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
-
-    /* Selector sutil de Fondo */
-    .bg-toggle-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(16px);
-      padding: 3px 8px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--ink-muted);
-    }
-
-    .bg-btn {
-      padding: 3px 9px;
-      border-radius: var(--radius-pill);
-      border: none;
-      background: transparent;
-      color: var(--ink-muted);
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .bg-btn.active {
-      background: rgba(255, 255, 255, 0.18);
-      color: #ffffff;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
-    }
-
-    .nav-right-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       HERO SECTION: INTRODUCCIÓN RESUMIDA & SELLO GIRATORIO
-       ═══════════════════════════════════════════════════════════════════ */
-    .header-section {
-      padding-top: 3.5rem;
-      padding-bottom: 2.8rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 2.5rem;
-    }
-
-    .profile-info {
-      max-width: 820px;
-    }
-
-    .hero-top-badges {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 1.2rem;
-    }
-
-    .status-radar-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      background: rgba(16, 185, 129, 0.12);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(16, 185, 129, 0.35);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      color: #34d399;
-      padding: 5px 15px;
-      border-radius: var(--radius-pill);
-      font-size: 0.76rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-    }
-
-    .cycle-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      border-radius: var(--radius-pill);
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      background: rgba(168, 85, 247, 0.12);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-      color: #c084fc;
-      backdrop-filter: blur(16px);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    }
-
-    .radar-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-      position: relative;
-    }
-
-    .radar-dot::after {
-      content: "";
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      border: 2px solid #22c55e;
-      animation: radarPulse 2s ease-out infinite;
-    }
-
-    @keyframes radarPulse {
-      0% { transform: scale(0.6); opacity: 1; }
-      100% { transform: scale(2.2); opacity: 0; }
-    }
-
-    .profile-info h1 {
-      font-size: clamp(2.4rem, 4vw, 3.4rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.1rem;
-      color: #ffffff;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
-    }
-
-    .profile-info h1 span.gradient-text {
-      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 0 25px rgba(129, 140, 248, 0.3));
-    }
-
-    body.theme-light-nature .cycle-pill {
-      color: #047857;
-      background: rgba(5, 150, 105, 0.1);
-      border-color: rgba(5, 150, 105, 0.4);
-    }
-
-    .profile-bio {
-      font-size: clamp(1.02rem, 1.25vw, 1.15rem);
-      color: #f1f5f9;
-      line-height: 1.65;
-      max-width: 72ch;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
-    }
-
-    .profile-bio strong {
-      color: #ffffff;
-      font-weight: 700;
-    }
-
-    /* Sello Giratorio de Agencia B2B */
-    .rotating-studio-seal {
-      width: 110px;
-      height: 110px;
-      flex-shrink: 0;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: rotateSeal 25s linear infinite;
-      user-select: none;
-    }
-
-    @keyframes rotateSeal {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .rotating-studio-seal svg {
-      width: 100%;
-      height: 100%;
-      fill: #ffffff;
-      opacity: 0.85;
-      filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
-    }
-
-    .seal-center-icon {
-      position: absolute;
-      font-size: 1.4rem;
-      color: #f59e0b;
-      filter: drop-shadow(0 0 8px #f59e0b);
-    }
-
-    @media (max-width: 840px) {
-      .rotating-studio-seal { display: none; }
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       VIDEOS EN VIVO: 3 COLUMNAS ESPEJO + BURBUJAS 1, 2, 3 ACOPLADAS
-       ═══════════════════════════════════════════════════════════════════ */
-    .videos-section {
-      padding-top: 1rem;
-      padding-bottom: 4rem;
-    }
-
-    .video-columns-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(1.2rem, 2.2vw, 2rem);
-      width: 100%;
-    }
-
-    @media (max-width: 900px) {
-      .video-columns-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .video-col {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .col-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .col-title {
-      font-size: clamp(1.4rem, 2vw, 1.75rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-    }
-
-    .col-tag {
-      font-size: 0.72rem;
-      font-weight: 800;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      backdrop-filter: blur(12px);
-      white-space: nowrap;
-    }
-
-    .col-tag.tag-ia {
-      background: rgba(168, 85, 247, 0.15);
-      color: #c084fc;
-      border: 1px solid rgba(168, 85, 247, 0.4);
-    }
-
-    .col-tag.tag-edit {
-      background: rgba(245, 158, 11, 0.15);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.4);
-    }
-
-    .col-tag.tag-reels {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.4);
-    }
-
-    /* Tarjeta Espejo de Video con Blur Real */
-    .video-card-mirror {
-      background: rgba(8, 11, 20, 0.72);
-      backdrop-filter: blur(32px) saturate(210%);
-      -webkit-backdrop-filter: blur(32px) saturate(210%);
-      border-radius: 28px;
-      aspect-ratio: 9 / 14;
-      max-height: 485px;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      box-shadow: 
-        0 25px 60px -12px rgba(0, 0, 0, 0.9),
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.28),
-        inset 0 -1px 0 rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-
-    .video-card-mirror:hover {
-      transform: translateY(-8px) scale(1.008);
-      border-color: rgba(192, 132, 252, 0.45);
-      box-shadow: 
-        0 38px 85px -15px rgba(0, 0, 0, 0.95),
-        0 0 45px rgba(168, 85, 247, 0.22),
-        inset 0 1px 2px rgba(255, 255, 255, 0.45);
-    }
-
-    .video-player-frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: #000;
-    }
-
-    .video-player-frame video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Overlay Central Play */
-    .card-play-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      cursor: pointer;
-      z-index: 3;
-      background: linear-gradient(to top, rgba(3,4,8,0.85) 0%, rgba(3,4,8,0.1) 50%, rgba(3,4,8,0.3) 100%);
-      transition: opacity 0.3s ease;
-    }
-
-    .card-play-overlay.is-hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .play-circle {
-      display: none !important;
-      width: 62px;
-      height: 62px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      color: #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      padding-left: 4px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 25px rgba(255, 255, 255, 0.35);
-      transition: transform 0.2s ease;
-    }
-
-    .card-play-overlay:hover .play-circle {
-      transform: scale(1.14);
-      background: #ffffff;
-      box-shadow: 0 14px 40px rgba(255, 255, 255, 0.5);
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       BURBUJAS CRISTALINAS 1, 2, 3 ACOPLADAS AL ENTORNO
-       ═══════════════════════════════════════════════════════════════════ */
-    .video-bubbles-bar {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      margin-top: 12px;
-      background: rgba(6, 9, 16, 0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      padding: 7px 16px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25);
-      align-self: center;
-    }
-
-    .video-bubble {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 800;
-      background: rgba(255, 255, 255, 0.05);
-      color: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .video-bubble:hover {
-      background: rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      transform: scale(1.15);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .video-bubble.active {
-      background: #ffffff;
-      color: #000000;
-      border-color: #ffffff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.75);
-      transform: scale(1.12);
-    }
-
-    .video-bottom-info {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      right: 14px;
-      padding: 8px 14px;
-      border-radius: var(--radius-pill);
-      background: rgba(10, 14, 24, 0.78);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      font-size: 0.75rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 4;
-      pointer-events: none;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2);
-    }
-
-    .audio-dots {
-      display: flex;
-      gap: 2px;
-      align-items: center;
-    }
-
-    .audio-dots span {
-      width: 3px;
-      height: 8px;
-      background: #facc15;
-      border-radius: 2px;
-      animation: audioPulse 1.2s infinite alternate;
-    }
-
-    .audio-dots span:nth-child(2) { animation-delay: 0.2s; height: 12px; }
-    .audio-dots span:nth-child(3) { animation-delay: 0.4s; height: 6px; }
-
-    @keyframes audioPulse {
-      0% { transform: scaleY(0.4); }
-      100% { transform: scaleY(1.2); }
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       SECCIÓN DE CIERRE: SKILLS ESPEJO CRISTALINAS (TERMINA AQUÍ)
-       ═══════════════════════════════════════════════════════════════════ */
-    .skills-section {
-      padding-top: 2rem;
-      padding-bottom: 5.5rem;
-    }
-
-    .section-headline {
-      font-size: clamp(2rem, 3.2vw, 2.6rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      margin-bottom: 2rem;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    @media (max-width: 900px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .mirror-card {
-      background: rgba(12, 16, 28, 0.52);
-      backdrop-filter: blur(28px) saturate(190%);
-      -webkit-backdrop-filter: blur(28px) saturate(190%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 26px;
-      padding: 2rem 1.8rem;
-      box-shadow: 
-        0 15px 35px rgba(0, 0, 0, 0.45),
-        inset 0 1px 1.5px rgba(255, 255, 255, 0.25),
-        inset 0 -1px 1px rgba(255, 255, 255, 0.04);
-      transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .mirror-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 22px 50px rgba(0, 0, 0, 0.65),
-        0 0 30px rgba(147, 197, 253, 0.12),
-        inset 0 1px 2px rgba(255, 255, 255, 0.45);
-    }
-
-    .skill-top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.2rem;
-    }
-
-    .skill-tag {
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      backdrop-filter: blur(10px);
-    }
-
-    .card-commercial .skill-tag {
-      background: rgba(56, 189, 248, 0.12);
-      color: #38bdf8;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-
-    .card-video .skill-tag {
-      background: rgba(245, 158, 11, 0.12);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-    }
-
-    .card-tech .skill-tag {
-      background: rgba(168, 85, 247, 0.12);
-      color: #c084fc;
-      border: 1px solid rgba(168, 85, 247, 0.3);
-    }
-
-    .skill-icon-wrap {
-      font-size: 1.5rem;
-    }
-
-    .mirror-card h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #ffffff;
-      margin-bottom: 0.6rem;
-      letter-spacing: -0.01em;
-    }
-
-    .mirror-card p {
-      font-size: 0.95rem;
-      color: #94a3b8;
-      line-height: 1.55;
-    }
-
-    .mirror-card.card-wide {
-      grid-column: span 3;
-      background: linear-gradient(135deg, rgba(16, 20, 36, 0.75) 0%, rgba(10, 13, 24, 0.85) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.55),
-        inset 0 1px 2px rgba(255, 255, 255, 0.35);
-    }
-
-    @media (max-width: 900px) {
-      .mirror-card.card-wide { grid-column: span 1; }
-    }
-
-    .mirror-card.card-wide p { color: #cbd5e1; }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       FOOTER FINAL LIMPIO
-       ═══════════════════════════════════════════════════════════════════ */
-    .site-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 3rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      color: #64748b;
-      font-size: 0.88rem;
-    }
-
-    .footer-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    /* Modal Video Fullscreen */
-    #videoModal {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(28px);
-      -webkit-backdrop-filter: blur(28px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-
-    #videoModal.active { display: flex; }
-
-    .modal-box {
-      position: relative;
-      width: 100%;
-      max-width: 440px;
-      background: #080a14;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255,255,255,0.3);
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      z-index: 10;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(10px);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.2s;
-    }
-
-    .modal-close-btn:hover { background: #fff; color: #000; }
-
-    /* ═══════════════════════════════════════════════════════════════════
-       TEMA CLARO: NATURALEZA SERENA (MÁXIMA TRANQUILIDAD & ALTO CONTRASTE)
-       ═══════════════════════════════════════════════════════════════════ */
-    body.theme-light-nature {
-      --bg-dark: #f8fafc;
-      --ink: #0f172a;
-      --ink-muted: #475569;
-      --ink-light: #64748b;
-      color: #0f172a;
-    }
-
-    body.theme-light-nature .top-nav-bar {
-      border-bottom-color: rgba(15, 23, 42, 0.08);
-    }
-
-    body.theme-light-nature .brand-name {
-      color: #0f172a;
-      text-shadow: none;
-    }
-
-    body.theme-light-nature .brand-badge {
-      background: rgba(15, 23, 42, 0.06);
-      color: #334155;
-      border-color: rgba(15, 23, 42, 0.1);
-    }
-
-    body.theme-light-nature .bg-toggle-pill {
-      background: rgba(255, 255, 255, 0.8);
-      border-color: rgba(15, 23, 42, 0.1);
-      color: #475569;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
-    }
-
-    body.theme-light-nature .bg-btn {
-      color: #475569;
-    }
-
-    body.theme-light-nature .bg-btn.active {
-      background: #0f172a;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
-    }
-
-    body.theme-light-nature .mirror-pill {
-      background: rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-color: rgba(255, 255, 255, 0.95);
-      color: #0f172a;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), inset 0 1px 1px #ffffff;
-    }
-
-    body.theme-light-nature .mirror-pill:hover {
-      background: rgba(255, 255, 255, 0.95);
-      border-color: #0f172a;
-      color: #0f172a;
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
-    }
-
-    body.theme-light-nature .btn-mirror-tiktok {
-      background: #000000;
-      color: #ffffff;
-      border-color: transparent;
-      box-shadow: 0 6px 18px rgba(10, 102, 194, 0.25);
-    }
-
-    body.theme-light-nature .mirror-btn-contactame {
-      background: #16a34a;
-      color: #ffffff;
-      box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
-    }
-
-    body.theme-light-nature .status-radar-pill {
-      background: rgba(22, 163, 74, 0.1);
-      border-color: rgba(22, 163, 74, 0.3);
-      color: #15803d;
-      box-shadow: none;
-    }
-
-    body.theme-light-nature .profile-info h1 {
-      color: #0f172a;
-      text-shadow: none;
-    }
-
-    body.theme-light-nature .profile-info h1 span.gradient-text {
-      background: linear-gradient(135deg, #059669 0%, #0284c7 60%, #0f766e 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: none;
-    }
-
-    body.theme-light-nature .profile-bio {
-      color: #334155;
-      text-shadow: none;
-    }
-
-    body.theme-light-nature .profile-bio strong {
-      color: #0f172a;
-    }
-
-    body.theme-light-nature .rotating-studio-seal {
-      filter: invert(0.9) brightness(0.2);
-    }
-
-    body.theme-light-nature .col-title {
-      color: #0f172a;
-    }
-
-    body.theme-light-nature .col-tag {
-      background: rgba(255, 255, 255, 0.75);
-      border-color: rgba(15, 23, 42, 0.08);
-      color: #334155;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-    }
-
-    body.theme-light-nature .video-card-mirror {
-      background: rgba(255, 255, 255, 0.78);
-      border-color: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08), inset 0 1px 1px #ffffff;
-    }
-
-    body.theme-light-nature .video-bottom-info {
-      background: rgba(255, 255, 255, 0.92);
-      border-color: rgba(15, 23, 42, 0.08);
-      color: #1e293b;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-    }
-
-    body.theme-light-nature .video-bottom-info span {
-      color: #1e293b;
-      font-weight: 700;
-    }
-
-    body.theme-light-nature .video-bubbles-bar {
-      background: rgba(255, 255, 255, 0.85);
-      border-color: rgba(15, 23, 42, 0.1);
-      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
-    }
-
-    body.theme-light-nature .video-bubble {
-      background: rgba(15, 23, 42, 0.06);
-      color: #334155;
-      border-color: rgba(15, 23, 42, 0.1);
-    }
-
-    body.theme-light-nature .video-bubble.active {
-      background: #0f172a;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
-    }
-
-    body.theme-light-nature .section-headline {
-      color: #0f172a;
-    }
-
-    body.theme-light-nature .mirror-card {
-      background: rgba(255, 255, 255, 0.78);
-      border-color: rgba(255, 255, 255, 0.95);
-      color: #1e293b;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.07), inset 0 1px 1px #ffffff;
-    }
-
-    body.theme-light-nature .mirror-card h3 {
-      color: #0f172a;
-    }
-
-    body.theme-light-nature .mirror-card p,
-    body.theme-light-nature .mirror-card.card-wide p {
-      color: #334155;
-    }
-
-    body.theme-light-nature .card-stat-number {
-      color: #0f172a;
-    }
-
-    body.theme-light-nature .card-stat-label {
-      color: #64748b;
-    }
-
-    body.theme-light-nature .skill-badge {
-      background: rgba(15, 23, 42, 0.05);
-      border-color: rgba(15, 23, 42, 0.1);
-      color: #1e293b;
-    }
-
-    body.theme-light-nature .card-metric-tag {
-      background: rgba(22, 163, 74, 0.1);
-      border-color: rgba(22, 163, 74, 0.3);
-      color: #15803d;
-    }
-  </style>
   <!-- Microsoft Clarity Oficial -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -1202,89 +26,1048 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    var params = new URLSearchParams(window.location.search);
-    if (params.get('admin') === 'fabricio' || params.get('notrack') === '1') {
-      localStorage.setItem('fabricio_ignore_analytics', 'true');
-      console.log('Escudo Activado: Tus visitas no seran registradas.');
-    }
-    if (params.get('trackme') === '1') {
-      localStorage.removeItem('fabricio_ignore_analytics');
-      console.log('Rastreo activado.');
-    }
-
-    if (localStorage.getItem('fabricio_ignore_analytics') === 'true') {
-      console.log('Modo privado de Fabricio activo (Rastreo detenido).');
-      window['ga-disable-G-PL6PV7LZWK'] = true;
-      if (typeof window.clarity === 'function') {
-        window.clarity('stop');
-      }
+    const ADMIN_IP = "38.25.18.99";
+    if (!sessionStorage.getItem('geo_checked')) {
+      fetch('https://api.ipify.org?format=json')
+        .then(res => res.json())
+        .then(data => {
+          sessionStorage.setItem('geo_checked', 'true');
+          if (data.ip === ADMIN_IP) {
+            sessionStorage.setItem('is_admin_device', 'true');
+            if (typeof window.clarity === 'function') {
+              window.clarity('stop');
+            }
+          } else {
+            gtag('config', 'G-PL6PV7LZWK');
+          }
+        })
+        .catch(() => {
+          gtag('config', 'G-PL6PV7LZWK');
+        });
     } else {
-      gtag('config', 'G-PL6PV7LZWK');
+      if (sessionStorage.getItem('is_admin_device') === 'true') {
+        if (typeof window.clarity === 'function') {
+          window.clarity('stop');
+        }
+      } else {
+        gtag('config', 'G-PL6PV7LZWK');
+      }
     }
   </script>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════
+       1. VARIABLES DEL SISTEMA DE DISEÑO (OBSIDIAN DARK LUXURY)
+       ═══════════════════════════════════════════════════════════════════ */
+    :root {
+      --bg-dark: #030305;
+      --bg-surface: rgba(10, 13, 20, 0.72);
+      --bg-surface-hover: rgba(14, 18, 28, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(129, 140, 248, 0.4);
+      --border-light: rgba(255, 255, 255, 0.16);
+
+      --ink-primary: #ffffff;
+      --ink-secondary: #94a3b8;
+      --ink-muted: #64748b;
+
+      /* Acento principal unificado: Azul-Violeta */
+      --accent-primary: #818cf8;
+      --accent-soft: rgba(129, 140, 248, 0.12);
+      --accent-glow: rgba(99, 102, 241, 0.25);
+
+      /* Verde exclusivo para el CTA principal de contacto */
+      --cta-green: #10b981;
+      --cta-green-glow: rgba(16, 185, 129, 0.35);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-pill: 9999px;
+
+      --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       2. CURSOR PERSONALIZADO (MONITO + ESTADO PLAY + FALLBACK)
+       ═══════════════════════════════════════════════════════════════════ */
+    body, a, button, input, select {
+      cursor: url("assets/cursor_monkey.png") 4 4,
+              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E") 4 1,
+              auto !important;
+    }
+
+    a, button, .video-bubble, .btn-icon-sfx, .btn-icon-tiktok {
+      cursor: url("assets/cursor_monkey.png") 4 4,
+              pointer !important;
+    }
+
+    /* Cursor en estado PLAY al pasar por los videos */
+    .video-card-mirror, .video-card-mirror * {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%236366f1' stroke='%23ffffff' stroke-width='2'/%3E%3Cpolygon points='12,10 23,16 12,22' fill='%23ffffff'/%3E%3C/svg%3E") 16 16,
+              pointer !important;
+    }
+
+    /* En pantallas táctiles se desactiva el cursor custom */
+    @media (hover: none) and (pointer: coarse) {
+      body, a, button, input, select, .video-card-mirror, .video-card-mirror * {
+        cursor: auto !important;
+      }
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--ink-primary);
+      font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       3. NUEVO FONDO: CANVAS DE CONSTELACIÓN VIVA INTERACTIVA
+       ═══════════════════════════════════════════════════════════════════ */
+    .constellation-wrapper {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      background: var(--bg-dark);
+    }
+
+    #spaceCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Viñeta oscura periférica para profundidad cinematográfica */
+    .constellation-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, transparent 38%, rgba(3, 3, 5, 0.72) 80%, rgba(3, 3, 5, 0.98) 100%);
+      pointer-events: none;
+    }
+
+    /* Resplandor sutil azul-violeta detrás del Hero */
+    .hero-ambient-glow {
+      position: absolute;
+      top: -120px;
+      left: 15%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(129, 140, 248, 0.03) 45%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       4. ESTRUCTURA Y CONTENEDOR PRINCIPAL (ESCALA 8px)
+       ═══════════════════════════════════════════════════════════════════ */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: clamp(1rem, 4vw, 2.5rem);
+      padding-right: clamp(1rem, 4vw, 2.5rem);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       5. NAVBAR UNIFICADA (HEADER)
+       ═══════════════════════════════════════════════════════════════════ */
+    .top-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+    }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ink-muted);
+      border: 1px solid var(--border-subtle);
+      text-transform: uppercase;
+    }
+
+    .nav-right-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Botón Secundario: Currículum */
+    .nav-btn-cv {
+      height: 40px;
+      padding: 0 1.15rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-light);
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s var(--ease-luxury);
+      white-space: nowrap;
+    }
+
+    .nav-btn-cv:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+    }
+
+    /* Botón Primario: Contáctame (Verde vibrante único) */
+    .nav-btn-contact {
+      height: 40px;
+      padding: 0 1.3rem;
+      border-radius: var(--radius-pill);
+      background: var(--cta-green);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #022c22;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px var(--cta-green-glow);
+      transition: all 0.25s var(--ease-luxury);
+      white-space: nowrap;
+    }
+
+    .nav-btn-contact:hover {
+      background: #15803d;
+      color: #ffffff;
+      box-shadow: 0 6px 24px rgba(22, 163, 74, 0.55);
+      transform: translateY(-2px);
+    }
+
+    /* Icon Buttons: TikTok y SFX */
+    .btn-icon-square {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-light);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s var(--ease-luxury);
+      flex-shrink: 0;
+    }
+
+    .btn-icon-square:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    /* SFX Toggle con barras activas */
+    .btn-icon-square.sfx-btn .sfx-bars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      height: 12px;
+    }
+
+    .btn-icon-square.sfx-btn .sfx-bars span {
+      width: 2.5px;
+      height: 100%;
+      background: var(--accent-primary);
+      border-radius: 2px;
+      animation: sfxWave 0.9s ease-in-out infinite alternate;
+    }
+
+    .btn-icon-square.sfx-btn .sfx-bars span:nth-child(1) { animation-delay: 0.1s; height: 55%; }
+    .btn-icon-square.sfx-btn .sfx-bars span:nth-child(2) { animation-delay: 0.3s; height: 100%; }
+    .btn-icon-square.sfx-btn .sfx-bars span:nth-child(3) { animation-delay: 0.2s; height: 75%; }
+
+    .btn-icon-square.sfx-btn.is-muted .sfx-bars span {
+      animation: none !important;
+      height: 2.5px !important;
+      background: var(--ink-muted) !important;
+    }
+
+    @keyframes sfxWave {
+      0% { transform: scaleY(0.4); }
+      100% { transform: scaleY(1.15); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       6. HERO SECTION: JERARQUÍA PULIDA & REVEAL ESCALONADO
+       ═══════════════════════════════════════════════════════════════════ */
+    .header-section {
+      padding-top: 3.5rem;
+      padding-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+
+    .profile-info {
+      max-width: 780px;
+    }
+
+    /* Fila de Badges Superiores */
+    .hero-top-badges {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .status-radar-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      color: #34d399;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .radar-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      position: relative;
+    }
+
+    .radar-dot::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1.5px solid #10b981;
+      animation: radarPulse 2s ease-out infinite;
+    }
+
+    @keyframes radarPulse {
+      0% { transform: scale(0.6); opacity: 1; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+
+    .cycle-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 13px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--accent-soft);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+      color: #c7d2fe;
+    }
+
+    /* Título Hero: Limpio, Grande, Acento Solo en "marketing" */
+    .hero-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(2.5rem, 5.2vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    .hero-title .hero-bullet {
+      color: var(--accent-primary);
+      margin-right: 4px;
+    }
+
+    .hero-title .hero-accent {
+      background: linear-gradient(135deg, #c7d2fe 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline;
+    }
+
+    .profile-bio {
+      font-size: clamp(1rem, 1.25vw, 1.12rem);
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      max-width: 66ch;
+    }
+
+    .profile-bio strong {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Sello Giratorio de Estudio */
+    .rotating-studio-seal {
+      width: 110px;
+      height: 110px;
+      position: relative;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .rotating-studio-seal svg {
+      width: 100%;
+      height: 100%;
+      animation: rotateSeal 24s linear infinite;
+      fill: var(--ink-secondary);
+    }
+
+    .seal-center-icon {
+      position: absolute;
+      color: var(--accent-primary);
+      font-size: 1.2rem;
+    }
+
+    @keyframes rotateSeal {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       7. SECCIÓN DE VIDEOS: 3 COLUMNAS ALINEADAS CON CSS GRID
+       ═══════════════════════════════════════════════════════════════════ */
+    .videos-section {
+      padding-top: 1.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .videos-columns-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.2rem, 2vw, 1.8rem);
+      width: 100%;
+      align-items: start;
+    }
+
+    .video-col {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    /* Cabecera de Columna: Misma altura fija para alineación exacta */
+    .col-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      height: 38px;
+      margin-bottom: 0.85rem;
+    }
+
+    .col-title {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    /* Etiquetas Unificadas en Estilo Azul-Violeta */
+    .col-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+      color: #c7d2fe;
+      white-space: nowrap;
+    }
+
+    /* Tarjeta de Video: Portada viva, sin capa lechosa, altura calibrada */
+    .video-card-mirror {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 14;
+      height: 480px;
+      max-height: 480px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform 0.3s var(--ease-luxury),
+                  border-color 0.3s ease,
+                  box-shadow 0.3s ease;
+    }
+
+    .video-card-mirror:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-hover);
+      box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.95),
+                  0 0 30px var(--accent-glow);
+    }
+
+    .video-player-frame {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+    }
+
+    .video-player-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Overlay Central con Indicador de Play Discreto */
+    .card-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      /* Viñeta sutil solo abajo para que el video no se lave */
+      background: linear-gradient(to top, rgba(3, 3, 5, 0.75) 0%, transparent 45%);
+      transition: opacity 0.25s ease;
+    }
+
+    .card-play-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      padding-left: 3px;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: all 0.25s var(--ease-luxury);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-card-mirror:hover .card-play-icon {
+      opacity: 1;
+      transform: scale(1.05);
+      background: rgba(129, 140, 248, 0.85);
+      border-color: #ffffff;
+    }
+
+    /* Caption Inferior con Ecualizador Animado */
+    .video-bottom-info {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      padding: 7px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(6, 9, 16, 0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      color: #ffffff;
+      font-size: 0.73rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .audio-dots {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .audio-dots span {
+      width: 2.5px;
+      height: 8px;
+      background: var(--accent-primary);
+      border-radius: 1.5px;
+      animation: audioPulse 1.2s infinite alternate;
+    }
+
+    .audio-dots span:nth-child(2) { animation-delay: 0.2s; height: 11px; }
+    .audio-dots span:nth-child(3) { animation-delay: 0.4s; height: 6px; }
+
+    @keyframes audioPulse {
+      0% { transform: scaleY(0.4); }
+      100% { transform: scaleY(1.2); }
+    }
+
+    /* Barra de Navegación de Burbujas (Alineada en una sola línea horizontal) */
+    .video-bubbles-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 42px;
+      margin-top: 14px;
+      background: rgba(10, 13, 20, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      align-self: center;
+    }
+
+    .video-bubble {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--ink-secondary);
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .video-bubble:hover {
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      transform: scale(1.12);
+    }
+
+    .video-bubble.active {
+      background: #ffffff;
+      color: #030305;
+      border-color: #ffffff;
+      box-shadow: 0 0 14px rgba(255, 255, 255, 0.75);
+      transform: scale(1.1);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       8. SECCIÓN SKILLS: 4 TARJETAS CON EL MISMO PESO VISUAL EXACTO
+       ═══════════════════════════════════════════════════════════════════ */
+    .skills-section {
+      padding-top: 2rem;
+      padding-bottom: 5rem;
+    }
+
+    .section-headline {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(1.4rem, 2vw, 1.85rem);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-headline .headline-star {
+      color: var(--accent-primary);
+      font-size: 1.2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.6rem;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s var(--ease-luxury),
+                  border-color 0.25s ease,
+                  box-shadow 0.25s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+    }
+
+    .skill-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.9rem;
+    }
+
+    .skill-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      border: 1px solid rgba(129, 140, 248, 0.25);
+      color: #c7d2fe;
+    }
+
+    .skill-icon-wrap {
+      font-size: 1.35rem;
+    }
+
+    .skill-card h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: -0.015em;
+      color: #ffffff;
+      margin-bottom: 0.55rem;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: var(--ink-secondary);
+      line-height: 1.6;
+    }
+
+    .skill-card p strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       9. FOOTER PULIDO Y SIN ARTEFACTOS
+       ═══════════════════════════════════════════════════════════════════ */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 2.2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      flex-wrap: wrap;
+    }
+
+    .site-footer strong {
+      color: #ffffff;
+    }
+
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .footer-btn:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       10. LIGHTBOX MODAL DE VIDEO (PANTALLA CASI COMPLETA CON AUDIO)
+       ═══════════════════════════════════════════════════════════════════ */
+    .video-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 3, 5, 0.92);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .video-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-container {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      max-height: 92vh;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #000000;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 40px var(--accent-glow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-video-wrap {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000000;
+      position: relative;
+    }
+
+    .modal-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .modal-info-bar {
+      padding: 0.9rem 1.2rem;
+      background: #060810;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .modal-info-bar h4 {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .modal-info-bar p {
+      font-size: 0.72rem;
+      color: var(--accent-primary);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       11. ENTRADA SUAVE ESCALONADA (WOW REVEAL)
+       ═══════════════════════════════════════════════════════════════════ */
+    @keyframes heroReveal {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal-item-1 { animation: heroReveal 0.55s var(--ease-luxury) 0.08s both; }
+    .reveal-item-2 { animation: heroReveal 0.65s var(--ease-luxury) 0.18s both; }
+    .reveal-item-3 { animation: heroReveal 0.75s var(--ease-luxury) 0.28s both; }
+    .reveal-item-4 { animation: heroReveal 0.85s var(--ease-luxury) 0.38s both; }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       12. RESPONSIVE Y ACCESIBILIDAD (PREFERS-REDUCED-MOTION)
+       ═══════════════════════════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .videos-columns-grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-section {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .rotating-studio-seal {
+        align-self: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .top-nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-right-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .hero-title {
+        font-size: 2.3rem;
+      }
+      .video-card-mirror {
+        height: 440px;
+        max-height: 440px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .rotating-studio-seal svg {
+        animation: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       FONDO INTERCAMBIABLE: FONDO 2 (LLUVIA ASCENDENTE) O FONDO 1 (CONSTELACIONES)
+       FONDO: RED DE CONSTELACIÓN VIVA (CANVAS INTERACTIVO)
        ═══════════════════════════════════════════════════════════════════ -->
-  <div class="space-canvas-wrapper">
+  <div class="constellation-wrapper">
     <canvas id="spaceCanvas"></canvas>
-    <div class="space-vignette"></div>
+    <div class="constellation-vignette"></div>
+    <div class="hero-ambient-glow"></div>
   </div>
-  <div id="cursor-light"></div>
 
   <div class="container">
     
     <!-- ═══════════════════════════════════════════════════════════════════
-         NAVBAR LIMPIO CON CONMUTADOR DE FONDO
+         NAVBAR PULIDA Y UNIFICADA
          ═══════════════════════════════════════════════════════════════════ -->
-    <nav class="top-nav-bar">
-      
+    <nav class="top-nav-bar reveal-item-1">
       <div class="nav-brand">
         <span class="brand-name">Fabricio Jeremy Albarracín Sotelo</span>
         <span class="brand-badge">PORTAFOLIO 2026</span>
       </div>
 
       <div class="nav-right-actions">
-        <a href="#videos" class="mirror-pill">
-          <span>🎬 Videos / reels</span>
+        <!-- CTA Secundario: Currículum -->
+        <a href="assets/cv/CV_Jeremyalbarracin.pdf" target="_blank" class="nav-btn-cv" title="Descargar currículum vitae en PDF">
+          <span>📄 Currículum 📥</span>
         </a>
 
-        <a href="assets/cv/CV_Jeremyalbarracin.pdf" target="_blank" class="mirror-pill premium-cv-btn">
-          <span>📄 curriculum 📥</span>
+        <!-- CTA Principal: Contáctame (Verde vibrante único) -->
+        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="nav-btn-contact" title="Contactar directamente por WhatsApp">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.825z"/></svg>
+          <span>CONTÁCTAME</span>
         </a>
 
-        <!-- Botón Espejo Verde Vibrante CONTACTAME -->
-        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="mirror-btn-contactame">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.825z"/></svg>
-          <span>CONTACTAME</span>
+        <!-- TikTok Icon Button -->
+        <a href="https://www.tiktok.com/@blushadown" target="_blank" class="btn-icon-square btn-icon-tiktok" title="Perfil oficial de TikTok">
+          <svg width="17" height="17" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z"/></svg>
         </a>
 
-        <!-- TikTok Espejo -->
-        <a href="https://www.tiktok.com/@blushadown" target="_blank" class="btn-mirror-tiktok" title="TikTok">
-          <svg width="18" height="18" fill="currentColor" viewBox="0 0 448 512"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31v89.89a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14Z"/></svg>
-        </a>
-
-        <!-- Botón Toggle de Sonido Háptico -->
-        <button id="soundToggleBtn" class="btn-mirror-sound" title="Sonido interactivo (Activado)">
-          <span class="sound-bars-icon">
-            <span></span><span></span><span></span>
-          </span>
-          <span class="sound-status-text">SFX</span>
+        <!-- SFX Toggle Button -->
+        <button id="soundToggleBtn" class="btn-icon-square sfx-btn btn-icon-sfx" title="Activar/Silenciar efectos de sonido">
+          <span class="sfx-bars"><span></span><span></span><span></span></span>
         </button>
       </div>
-
     </nav>
 
     <!-- ═══════════════════════════════════════════════════════════════════
-         HERO SECTION: INTRODUCCIÓN RESUMIDA & SELLO GIRATORIO
+         HERO SECTION: JERARQUÍA ELEVADA Y TEXTO DE ALTO IMPACTO
          ═══════════════════════════════════════════════════════════════════ -->
     <header class="header-section">
-      
       <div class="profile-info">
-        <!-- Badges Superiores Alineados -->
-        <div class="hero-top-badges">
+        
+        <!-- Fila de Badges Superiores -->
+        <div class="hero-top-badges reveal-item-1">
           <div class="status-radar-pill">
             <span class="radar-dot"></span>
             <span>DISPONIBLE PARA PROYECTOS B2B &amp; NUEVOS RETOS</span>
@@ -1292,19 +1075,19 @@
           <span class="cycle-pill">🎓 ÚLTIMO CICLO</span>
         </div>
 
-        <!-- Título Principal -->
-        <h1>
-          <span>▪ Practicante</span> <span class="gradient-text">de marketing</span>
+        <!-- Título Principal Limpio (Acento solo en marketing) -->
+        <h1 class="hero-title reveal-item-2">
+          <span class="hero-bullet">▪</span> <span>Practicante de</span> <span class="hero-accent">marketing</span>
         </h1>
 
-        <!-- Introducción de Alto Impacto conectada a los Videos -->
-        <p class="profile-bio">
+        <!-- Texto de Perfil con Alto Impacto y Coherencia Audiovisual -->
+        <p class="profile-bio reveal-item-3">
           Enfocado en <strong>creación de contenido audiovisual de alta conversión</strong> y <strong>estrategia digital B2B</strong>. Combino edición dinámica (Reels, TikTok, Spots Corporativos y herramientas de IA) con prospección y gestión en CRM (Salesforce / HubSpot) para transformar ideas en piezas comerciales que retienen audiencia y generan clientes.
         </p>
       </div>
 
-      <!-- Sello Giratorio de Agencia B2B -->
-      <div class="rotating-studio-seal">
+      <!-- Sello Giratorio de Estudio -->
+      <div class="rotating-studio-seal reveal-item-2">
         <svg viewBox="0 0 100 100">
           <defs>
             <path id="sealPath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
@@ -1317,42 +1100,39 @@
         </svg>
         <div class="seal-center-icon">✦</div>
       </div>
-
     </header>
 
     <!-- ═══════════════════════════════════════════════════════════════════
-         VIDEOS EN VIVO: 3 COLUMNAS ESPEJO + BURBUJAS 1, 2, 3 ACOPLADAS
+         SECCIÓN DE VIDEOS: 3 COLUMNAS ALINEADAS LADO A LADO
          ═══════════════════════════════════════════════════════════════════ -->
-    <section id="videos" class="videos-section">
-      
-      <div class="video-columns-grid">
+    <section id="videos" class="videos-section reveal-item-4">
+      <div class="videos-columns-grid">
         
         <!-- COLUMNA 1: VIDEOS IA -->
         <div class="video-col col-ia">
           <div class="col-header">
             <h2 class="col-title">Videos IA</h2>
-            <span class="col-tag tag-ia">✦ IA Generativa</span>
+            <span class="col-tag">✦ IA Generativa</span>
           </div>
 
           <div class="video-card-mirror" id="card-ia">
-            
             <div class="video-player-frame">
-              <video id="video-ia" loop playsinline muted autoplay src="assets/videos_ia/1.mp4?v=7"></video>
+              <video id="video-ia" loop playsinline muted autoplay preload="metadata" src="assets/videos_ia/1.mp4?v=9"></video>
             </div>
 
-            <!-- Overlay Play Button -->
+            <!-- Overlay Play -->
             <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-ia').src, 'Videos IA — Spot Cinemático')">
-              <div class="play-circle">▶</div>
+              <div class="card-play-icon">▶</div>
             </div>
 
-            <!-- Pill Info Inferior -->
+            <!-- Caption Inferior -->
             <div class="video-bottom-info">
               <div class="audio-dots"><span></span><span></span><span></span></div>
               <span id="label-ia">Spot Cinemático 16:9 · Dirección Visual</span>
             </div>
           </div>
 
-          <!-- Burbujas DEBAJO de la tarjeta -->
+          <!-- Burbujas de Navegación (5 videos) -->
           <div class="video-bubbles-bar" id="bubbles-ia">
             <button class="video-bubble active" onclick="jumpToVideo('ia', 0)">1</button>
             <button class="video-bubble" onclick="jumpToVideo('ia', 1)">2</button>
@@ -1362,31 +1142,29 @@
           </div>
         </div>
 
-        <!-- COLUMNA 2: VIDEOS CORPORATIVOS -->
+        <!-- COLUMNA 2: CORPORATIVOS -->
         <div class="video-col col-edit">
           <div class="col-header">
-            <h2 class="col-title">Videos corporativos</h2>
-            <span class="col-tag tag-edit">🔥 Ritmo &amp; Retención</span>
+            <h2 class="col-title">Corporativos</h2>
+            <span class="col-tag">✦ Comercial B2B</span>
           </div>
 
           <div class="video-card-mirror" id="card-edit">
-            
             <div class="video-player-frame">
-              <video id="video-edit" loop playsinline muted autoplay src="assets/videos_edit/1.mp4?v=7"></video>
+              <video id="video-edit" loop playsinline muted autoplay preload="metadata" src="assets/videos_edit/1.mp4?v=9"></video>
             </div>
 
-            <!-- Overlay Play Button -->
-            <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-edit').src, 'Videos Corporativos — Edición Dinámica')">
-              <div class="play-circle">▶</div>
+            <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-edit').src, 'Corporativos — Edición Dinámica')">
+              <div class="card-play-icon">▶</div>
             </div>
 
             <div class="video-bottom-info">
               <div class="audio-dots"><span></span><span></span><span></span></div>
-              <span id="label-edit">Cortes Comerciales de Alto Impacto</span>
+              <span id="label-edit">Spot Comercial · Clínica Mater Salud</span>
             </div>
           </div>
 
-          <!-- Burbujas DEBAJO de la tarjeta -->
+          <!-- Burbujas de Navegación (4 videos) -->
           <div class="video-bubbles-bar" id="bubbles-edit">
             <button class="video-bubble active" onclick="jumpToVideo('edit', 0)">1</button>
             <button class="video-bubble" onclick="jumpToVideo('edit', 1)">2</button>
@@ -1395,22 +1173,20 @@
           </div>
         </div>
 
-        <!-- COLUMNA 3: REELS META ADS & TIKTOK -->
+        <!-- COLUMNA 3: REELS -->
         <div class="video-col col-reels">
           <div class="col-header">
             <h2 class="col-title">Reels</h2>
-            <span class="col-tag tag-reels">⚡ Hook 3s &amp; Pauta</span>
+            <span class="col-tag">✦ Retención 3s</span>
           </div>
 
           <div class="video-card-mirror" id="card-reels">
-            
             <div class="video-player-frame">
-              <video id="video-reels" loop playsinline muted autoplay src="assets/reels/1.mp4?v=8"></video>
+              <video id="video-reels" loop playsinline muted autoplay preload="metadata" src="assets/reels/1.mp4?v=9"></video>
             </div>
 
-            <!-- Overlay Play Button -->
             <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-reels').src, 'Reels — Campaña Vertical')">
-              <div class="play-circle">▶</div>
+              <div class="card-play-icon">▶</div>
             </div>
 
             <div class="video-bottom-info">
@@ -1419,7 +1195,7 @@
             </div>
           </div>
 
-          <!-- Burbujas DEBAJO de la tarjeta -->
+          <!-- Burbujas de Navegación (4 videos) -->
           <div class="video-bubbles-bar" id="bubbles-reels">
             <button class="video-bubble active" onclick="jumpToVideo('reels', 0)">1</button>
             <button class="video-bubble" onclick="jumpToVideo('reels', 1)">2</button>
@@ -1429,77 +1205,62 @@
         </div>
 
       </div>
-
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════════
-         SECCIÓN DE CIERRE: SKILLS ESPEJO CRISTALINAS (TERMINA AQUÍ)
+         SECCIÓN SKILLS: 4 TARJETAS CON EL MISMO PESO VISUAL
          ═══════════════════════════════════════════════════════════════════ -->
     <section id="skills" class="skills-section">
-      
       <h2 class="section-headline">
         <span>Skills &amp; Competencias</span>
-        <span style="font-size: 1.2rem; color: #a855f7;">✦</span>
+        <span class="headline-star">✦</span>
       </h2>
 
       <div class="skills-grid">
-        
-        <!-- Card 1: Comercial & CRM -->
-        <div class="mirror-card card-commercial">
-          <div>
-            <div class="skill-top-bar">
-              <span class="skill-tag">Comercial &amp; CRM</span>
-              <div class="skill-icon-wrap">📊</div>
-            </div>
-            <h3>Estrategia &amp; Ventas B2B</h3>
-            <p>Prospección de leads, gestión de embudos comerciales en Salesforce y HubSpot, Meta Ads, Meta Suite y email marketing enfocado en retorno.</p>
+        <!-- Card 1: Estrategia B2B -->
+        <div class="skill-card">
+          <div class="skill-top-bar">
+            <span class="skill-tag">Comercial &amp; CRM</span>
+            <div class="skill-icon-wrap">📊</div>
           </div>
+          <h3>Estrategia &amp; Ventas B2B</h3>
+          <p>Prospección calificada de leads, optimización de embudos comerciales en <strong>Salesforce y HubSpot</strong>, pauta digital y email marketing enfocado en retorno de inversión.</p>
         </div>
 
         <!-- Card 2: Audiovisual -->
-        <div class="mirror-card card-video">
-          <div>
-            <div class="skill-top-bar">
-              <span class="skill-tag">Audiovisual</span>
-              <div class="skill-icon-wrap">🎬</div>
-            </div>
-            <h3>Edición de Video Dinámica</h3>
-            <p>Creación de contenido para TikTok, Reels y Shorts con ritmo ágil, storytelling y ganchos en los primeros 3 segundos para frenar el scroll.</p>
-          </div>
-        </div>
-
-        <!-- Card 3: Datos & Automatización IA -->
-        <div class="mirror-card card-tech">
-          <div>
-            <div class="skill-top-bar">
-              <span class="skill-tag">Datos &amp; IA</span>
-              <div class="skill-icon-wrap">🤖</div>
-            </div>
-            <h3>Análisis en Excel &amp; Automatización IA</h3>
-            <p>Análisis de métricas y KPIs comerciales en Excel. Implementación de flujos asistidos con herramientas de Inteligencia Artificial.</p>
-          </div>
-        </div>
-
-        <!-- Card 4: 4 Años Rigor Textil (Diferencial Clave a lo Ancho) -->
-        <div class="mirror-card card-wide">
+        <div class="skill-card">
           <div class="skill-top-bar">
-            <span class="skill-tag" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4);">
-              Diferencial Operativo
-            </span>
+            <span class="skill-tag">Audiovisual</span>
+            <div class="skill-icon-wrap">🎬</div>
+          </div>
+          <h3>Edición de Video Dinámica</h3>
+          <p>Creación de contenido para <strong>TikTok, Reels y Shorts</strong> con ritmo acelerado, diseño sonoro, storytelling persuasivo y ganchos en los primeros 3 segundos para frenar el scroll.</p>
+        </div>
+
+        <!-- Card 3: Datos & IA -->
+        <div class="skill-card">
+          <div class="skill-top-bar">
+            <span class="skill-tag">Datos &amp; IA</span>
+            <div class="skill-icon-wrap">🤖</div>
+          </div>
+          <h3>Análisis de Datos &amp; Herramientas IA</h3>
+          <p>Monitoreo y análisis de KPIs comerciales en <strong>Excel avanzado</strong>. Implementación de flujos de trabajo asistidos con Inteligencia Artificial para acelerar la producción.</p>
+        </div>
+
+        <!-- Card 4: Diferencial Operativo Textil (Mismo peso visual) -->
+        <div class="skill-card">
+          <div class="skill-top-bar">
+            <span class="skill-tag">Diferencial 4 Años</span>
             <div class="skill-icon-wrap">🧵</div>
           </div>
-          <h3>4 Años de Trayectoria en Supervisión &amp; Calidad Textil</h3>
-          <p>
-            Experiencia previa en supervisión de líneas de producción y procesos operativos de alta exigencia técnica en el rubro textil. Esta formación aporta <strong>disciplina técnica, orden estricto, adaptabilidad bajo presión</strong> y un enfoque inquebrantable en el cumplimiento de metas comerciales y operativas.
-          </p>
+          <h3>Supervisión &amp; Disciplina Operativa</h3>
+          <p>4 años de rigor y supervisión de procesos de alta exigencia técnica en el rubro textil. Aporta <strong>disciplina técnica, orden estricto, adaptabilidad bajo presión</strong> y enfoque en resultados.</p>
         </div>
-
       </div>
-
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════════
-         FOOTER FINAL LIMPIO
+         FOOTER ELEGANTE Y LIMPIO
          ═══════════════════════════════════════════════════════════════════ -->
     <footer class="site-footer">
       <div>
@@ -1507,11 +1268,10 @@
       </div>
 
       <div class="footer-actions">
-        <a href="assets/cv/CV_Jeremyalbarracin.pdf" target="_blank" class="mirror-pill premium-cv-btn" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">
+        <a href="assets/cv/CV_Jeremyalbarracin.pdf" target="_blank" class="footer-btn">
           Descargar CV (PDF) 📥
         </a>
-
-        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="mirror-btn-contactame" style="padding: 0.5rem 1.3rem; font-size: 0.82rem;">
+        <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="footer-btn">
           WhatsApp 💬
         </a>
       </div>
@@ -1520,594 +1280,233 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       MODAL DE VIDEO FULLSCREEN CON AUDIO REAL
+       MODAL LIGHTBOX FULLSCREEN CON AUDIO Y TECLA ESC
        ═══════════════════════════════════════════════════════════════════ -->
-  <div id="videoModal" onclick="closeFullscreenVideo()">
-    <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close-btn" onclick="closeFullscreenVideo()">✕</button>
-      <div style="aspect-ratio: 9/16; width: 100%; background: #000;">
-        <video id="modalVideo" controls autoplay playsinline style="width: 100%; height: 100%; object-fit: cover;"></video>
+  <div class="video-modal-overlay" id="videoModal" onclick="closeFullscreenVideo(event)">
+    <div class="modal-container" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeFullscreenVideo()" aria-label="Cerrar video">✕</button>
+      <div class="modal-video-wrap">
+        <video id="modalVideo" playsinline controls></video>
       </div>
-      <div style="padding: 1rem 1.2rem; background: #080a14; color: #fff;">
-        <h4 id="modalTitle" style="font-size: 0.95rem; font-weight: 800;">Video</h4>
-        <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 4px;">Reproduciendo con audio</p>
+      <div class="modal-info-bar">
+        <h4 id="modalTitle">Video</h4>
+        <p>Reproduciendo con audio</p>
       </div>
     </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SCRIPTS: MOTOR DUAL DE FONDO & BURBUJAS DE VIDEO INTERACTIVAS
+       SCRIPTS: RED DE CONSTELACIÓN VIVA & MOTOR HÁPTICO
        ═══════════════════════════════════════════════════════════════════ -->
   <script>
-    // ── 1. MOTOR DE FONDOS (LLUVIA ASCENDENTE DE ESTRELLAS) ──
-    let activeBgMode = 2;
-
-    function setBgMode(mode) {
-      const wrapper = document.querySelector('.space-canvas-wrapper');
-      const vignette = document.querySelector('.space-vignette');
-      
-      // TEMA OSCURO
-      document.body.classList.remove('theme-light-nature');
-      if (vignette) vignette.style.opacity = '1';
-
-      wrapper.style.background = `
-        radial-gradient(ellipse 90% 60% at 50% -10%, rgba(99, 102, 241, 0.12) 0%, transparent 65%),
-        radial-gradient(ellipse 70% 50% at 85% 30%, rgba(168, 85, 247, 0.09) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 50% at 15% 45%, rgba(56, 189, 248, 0.07) 0%, transparent 60%),
-        #030307`;
-    }
-
+    // ── 1. RED DE CONSTELACIÓN VIVA INTERACTIVA ──
     const canvas = document.getElementById('spaceCanvas');
     const ctx = canvas.getContext('2d');
     let W, H;
-    let meteors = [];
-    let dust = [];
-    let constellationStars = [];
-    let grass = [];         // Fondo 3: Pasto
-    let skyStars = [];      // Fondo 3: Estrellas estáticas
-    let fireflies = [];     // Fondo 3: Luciérnagas
-    let zenLeaves = [];     // Fondo 4: Hojas botánicas que caen
-    let zenMotes = [];      // Fondo 4: Partículas tenues de luz
-    let zenClouds = [];     // Fondo 4: Nubes suaves
-    let mouse = { x: -1000, y: -1000 };
+    let nodes = [];
+    let waves = [];
+    let mouse = { x: -2000, y: -2000, isHover: false };
+    let animationFrameId = null;
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function resizeCanvas() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
-      initSpaceObjects();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      initNodes();
+      if (prefersReducedMotion) {
+        drawConstellationStatic();
+      }
     }
 
-    // ── Rayos de sol suaves y tranquilizantes (Komorebi / luz zen) ──
-    function drawZenSunrays(frame) {
-      ctx.save();
-      const sx = W * 0.85;
-      const sy = -40;
-      for (let i = 0; i < 4; i++) {
-        const baseAngle = Math.PI * 0.56 + (i * 0.14);
-        const wave = Math.sin(frame * 0.005 + i * 1.2) * 0.025;
-        const angle = baseAngle + wave;
-        const len = Math.max(W, H) * 1.4;
-        
-        ctx.beginPath();
-        ctx.moveTo(sx, sy);
-        ctx.lineTo(sx + Math.cos(angle - 0.07) * len, sy + Math.sin(angle - 0.07) * len);
-        ctx.lineTo(sx + Math.cos(angle + 0.07) * len, sy + Math.sin(angle + 0.07) * len);
-        ctx.closePath();
+    function initNodes() {
+      nodes = [];
+      // 40 en móvil, ~85 en escritorio (entre 70 y 110)
+      const count = W < 768 ? 40 : Math.min(105, Math.max(72, Math.floor((W * H) / 13500)));
 
-        const grad = ctx.createLinearGradient(sx, sy, sx + Math.cos(angle) * (len * 0.65), sy + Math.sin(angle) * (len * 0.65));
-        const alpha = 0.035 + 0.015 * Math.sin(frame * 0.008 + i * 1.5);
-        grad.addColorStop(0, `rgba(254, 240, 138, ${alpha * 1.6})`);
-        grad.addColorStop(0.5, `rgba(240, 253, 244, ${alpha})`);
-        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
-        
-        ctx.fillStyle = grad;
-        ctx.fill();
-      }
-      ctx.restore();
-    }
-
-    // ── Hojas botánicas realistas con caída suave y vaivén 3D ──
-    function drawBotanicalLeaf(leaf, frame) {
-      const flip = Math.cos(frame * leaf.flipSpeed + leaf.flipPhase);
-      const swingX = Math.sin(frame * leaf.swingSpeed + leaf.swing) * leaf.swingAmp;
-
-      ctx.save();
-      ctx.translate(leaf.x + swingX, leaf.y);
-      ctx.rotate(leaf.angle);
-      ctx.scale(Math.abs(flip) * 0.82 + 0.18, 1);
-      ctx.globalAlpha = leaf.alpha;
-
-      const s = leaf.size;
-      ctx.beginPath();
-      if (leaf.type === 0) {
-        // Hoja lanceolada / olivo
-        ctx.moveTo(0, -s * 1.2);
-        ctx.bezierCurveTo(s * 0.5, -s * 0.5, s * 0.5, s * 0.5, 0, s * 1.1);
-        ctx.bezierCurveTo(-s * 0.5, s * 0.5, -s * 0.5, -s * 0.5, 0, -s * 1.2);
-      } else if (leaf.type === 1) {
-        // Hoja oval / abedul
-        ctx.moveTo(0, -s);
-        ctx.bezierCurveTo(s * 0.8, -s * 0.35, s * 0.75, s * 0.55, 0, s);
-        ctx.bezierCurveTo(-s * 0.75, s * 0.55, -s * 0.8, -s * 0.35, 0, -s);
-      } else {
-        // Hoja suave de té / ginkgo
-        ctx.moveTo(0, s * 0.75);
-        ctx.bezierCurveTo(s * 0.85, s * 0.15, s * 0.75, -s * 0.8, 0, -s * 0.5);
-        ctx.bezierCurveTo(-s * 0.75, -s * 0.8, -s * 0.85, s * 0.15, 0, s * 0.75);
-      }
-      ctx.fillStyle = leaf.color;
-      ctx.fill();
-
-      // Nervadura central delicada
-      ctx.beginPath();
-      ctx.moveTo(0, -s * 0.85);
-      ctx.lineTo(0, s * 0.85);
-      ctx.strokeStyle = 'rgba(0, 0, 0, 0.14)';
-      ctx.lineWidth = 0.85;
-      ctx.stroke();
-
-      ctx.restore();
-    }
-
-    function initSpaceObjects() {
-      // ── MODO 2: STARDUST SUAVE & OBSIDIAN ATMOSPHERE ──
-      meteors = [];
-      const meteorCount = 8;
-      for (let i = 0; i < meteorCount; i++) {
-        meteors.push({
+      for (let i = 0; i < count; i++) {
+        nodes.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          len: Math.random() * 28 + 14,
-          speed: Math.random() * 1.4 + 0.6,
-          width: Math.random() * 1.0 + 0.4,
-          alpha: Math.random() * 0.4 + 0.15,
-          tilt: (Math.random() - 0.5) * 0.1
-        });
-      }
-      dust = [];
-      const dustCount = Math.floor((W * H) / 16000);
-      for (let i = 0; i < dustCount; i++) {
-        dust.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: Math.random() * 1.0 + 0.3,
-          speed: Math.random() * 0.35 + 0.1,
-          alpha: Math.random() * 0.4 + 0.15,
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-
-      // ── MODO 1: CONSTELACIONES ──
-      constellationStars = [];
-      const cCount = Math.floor((W * H) / 9500);
-      for (let i = 0; i < cCount; i++) {
-        constellationStars.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: Math.random() * 1.4 + 0.3,
-          baseAlpha: Math.random() * 0.55 + 0.25,
-          twinkleSpeed: Math.random() * 0.02 + 0.005,
-          phase: Math.random() * Math.PI * 2,
-          dx: (Math.random() - 0.5) * 0.22,
-          dy: (Math.random() - 0.5) * 0.18
-        });
-      }
-
-      // ── MODO 3: NATURALEZA (CIELO Y PASTO) ──
-      grass = [];
-      const grassCount = Math.floor(W / 4.5);
-      for (let i = 0; i < grassCount; i++) {
-        grass.push({
-          x: Math.random() * W,
-          height: Math.random() * 90 + 50,
-          width: Math.random() * 3 + 2.5,
-          swaySpeed: Math.random() * 0.015 + 0.008,
-          swayAmount: Math.random() * 35 + 15,
-          phase: Math.random() * Math.PI * 2,
-          color: `hsla(${Math.random() * 35 + 100}, ${Math.random() * 30 + 50}%, ${Math.random() * 20 + 15}%, 0.85)`
-        });
-      }
-
-      skyStars = [];
-      const sCount = Math.floor((W * H) / 10000);
-      for (let i = 0; i < sCount; i++) {
-        skyStars.push({
-          x: Math.random() * W,
-          y: Math.random() * (H * 0.65),
-          r: Math.random() * 1.2 + 0.3,
-          alpha: Math.random(),
-          twinkle: Math.random() * 0.05
-        });
-      }
-
-      fireflies = [];
-      const ffCount = 35;
-      for (let i = 0; i < ffCount; i++) {
-        fireflies.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: Math.random() * 2.2 + 1,
-          phase: Math.random() * Math.PI * 2,
-          phaseSpeed: Math.random() * 0.04 + 0.015,
-          vx: (Math.random() - 0.5) * 0.45,
+          ox: 0,
+          oy: 0,
+          vx: (Math.random() - 0.5) * 0.35,
           vy: (Math.random() - 0.5) * 0.35,
-          hue: Math.random() > 0.4 ? 105 : 62
-        });
-      }
-
-      // ── MODO 4: NATURALEZA SERENA CON HOJAS BOTÁNICAS QUE CAEN Y LUZ ZEN ──
-      zenLeaves = [];
-      const leafCount = 48;
-      const leafColors = [
-        'rgba(34, 197, 94, 0.72)',   // Verde hoja viva
-        'rgba(74, 222, 128, 0.68)',  // Verde claro suave
-        'rgba(16, 185, 129, 0.65)',  // Esmeralda natural
-        'rgba(132, 204, 22, 0.7)',   // Verde oliva lima
-        'rgba(234, 179, 8, 0.65)',   // Dorado cálido
-        'rgba(245, 158, 11, 0.65)',  // Ámbar suave
-        'rgba(217, 119, 6, 0.6)'     // Terracota otoñal tenue
-      ];
-      for (let i = 0; i < leafCount; i++) {
-        zenLeaves.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          size: Math.random() * 8 + 8, // 8 a 16px
-          vy: Math.random() * 0.8 + 0.5, // Caída muy suave y tranquila
-          vx: (Math.random() - 0.5) * 0.45,
-          angle: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 0.02,
-          flipPhase: Math.random() * Math.PI * 2,
-          flipSpeed: Math.random() * 0.025 + 0.01,
-          swing: Math.random() * Math.PI * 2,
-          swingSpeed: Math.random() * 0.018 + 0.008,
-          swingAmp: Math.random() * 25 + 12,
-          type: Math.floor(Math.random() * 3),
-          color: leafColors[Math.floor(Math.random() * leafColors.length)],
-          alpha: Math.random() * 0.35 + 0.45
-        });
-      }
-
-      zenMotes = [];
-      const moteCount = 35;
-      for (let i = 0; i < moteCount; i++) {
-        zenMotes.push({
-          x: Math.random() * W,
-          y: Math.random() * H,
-          r: Math.random() * 1.6 + 0.6,
-          vy: -(Math.random() * 0.3 + 0.1),
-          vx: (Math.random() - 0.5) * 0.25,
-          alpha: Math.random() * 0.35 + 0.15,
-          pulse: Math.random() * Math.PI * 2
-        });
-      }
-
-      zenClouds = [];
-      const cloudCount = 5;
-      for (let i = 0; i < cloudCount; i++) {
-        zenClouds.push({
-          x: Math.random() * W,
-          y: Math.random() * (H * 0.45) - 100, // Nubes en la parte superior
-          speed: Math.random() * 0.25 + 0.1,
-          scale: Math.random() * 0.8 + 0.5,
-          opacity: Math.random() * 0.3 + 0.15,
-          puffs: [
-            { ox: 0, oy: 0, r: Math.random() * 40 + 50 },
-            { ox: -40, oy: 10, r: Math.random() * 30 + 40 },
-            { ox: 45, oy: 5, r: Math.random() * 35 + 45 },
-            { ox: -75, oy: 20, r: Math.random() * 25 + 30 },
-            { ox: 80, oy: 15, r: Math.random() * 20 + 35 }
-          ]
+          radius: Math.random() * 1.5 + 1.1,
+          baseAlpha: Math.random() * 0.45 + 0.35,
+          pulse: Math.random() * Math.PI * 2,
+          pulseSpeed: Math.random() * 0.02 + 0.01,
+          glowHue: Math.random() > 0.4 ? '129, 140, 248' : '199, 210, 254'
         });
       }
     }
 
-    let frame = 0;
-    function renderSpace() {
+    function addClickRipple(x, y) {
+      waves.push({
+        x: x,
+        y: y,
+        r: 0,
+        maxR: Math.max(W, H) * 0.65,
+        speed: 7.5,
+        alpha: 0.95
+      });
+    }
+
+    function renderConstellation() {
       ctx.clearRect(0, 0, W, H);
-      frame++;
 
-      if (activeBgMode === 2) {
-        // ── RENDER FONDO 2: LLUVIA ASCENDENTE ──
-        dust.forEach(d => {
-          d.y -= d.speed;
-          d.pulse += 0.02;
-          if (d.y < -10) { d.y = H + 10; d.x = Math.random() * W; }
-          const currentAlpha = d.alpha * (0.65 + 0.35 * Math.sin(d.pulse));
-          ctx.beginPath();
-          ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(186, 215, 255, ${currentAlpha})`;
-          ctx.fill();
-        });
+      // Actualizar ondas de luz del clic
+      for (let w = waves.length - 1; w >= 0; w--) {
+        const wave = waves[w];
+        wave.r += wave.speed;
+        wave.alpha *= 0.965;
 
-        meteors.forEach(m => {
-          m.y -= m.speed;
-          m.x += m.tilt * m.speed;
-          if (m.y < -m.len) {
-            m.y = H + m.len + Math.random() * 80;
-            m.x = Math.random() * W;
-            m.speed = Math.random() * 4.5 + 2.5;
-            m.alpha = Math.random() * 0.7 + 0.25;
+        ctx.beginPath();
+        ctx.arc(wave.x, wave.y, wave.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(129, 140, 248, ${wave.alpha * 0.35})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        if (wave.alpha < 0.015 || wave.r > wave.maxR) {
+          waves.splice(w, 1);
+        }
+      }
+
+      // Actualizar y dibujar nodos
+      const maxConnectDist = W < 768 ? 100 : 125;
+      const mouseInfluenceDist = 145;
+
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+
+        // Deriva suave continua
+        n.x += n.vx;
+        n.y += n.vy;
+        n.pulse += n.pulseSpeed;
+
+        // Rebote suave en los bordes
+        if (n.x < 0) { n.x = 0; n.vx *= -1; }
+        else if (n.x > W) { n.x = W; n.vx *= -1; }
+        if (n.y < 0) { n.y = 0; n.vy *= -1; }
+        else if (n.y > H) { n.y = H; n.vy *= -1; }
+
+        let currentAlpha = n.baseAlpha * (0.7 + 0.3 * Math.sin(n.pulse));
+        let boostAlpha = 0;
+
+        // Reacción al paso de las ondas de clic
+        for (let w = 0; w < waves.length; w++) {
+          const wave = waves[w];
+          const distWave = Math.hypot(n.x - wave.x, n.y - wave.y);
+          if (Math.abs(distWave - wave.r) < 35) {
+            boostAlpha = Math.max(boostAlpha, wave.alpha * 0.85);
           }
-          const grad = ctx.createLinearGradient(m.x, m.y + m.len, m.x, m.y);
-          grad.addColorStop(0, 'rgba(56, 189, 248, 0)');
-          grad.addColorStop(0.5, `rgba(129, 140, 248, ${m.alpha * 0.5})`);
-          grad.addColorStop(1, `rgba(255, 255, 255, ${m.alpha})`);
-          ctx.beginPath();
-          ctx.moveTo(m.x - m.tilt * m.len, m.y + m.len);
-          ctx.lineTo(m.x, m.y);
-          ctx.strokeStyle = grad;
-          ctx.lineWidth = m.width;
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.arc(m.x, m.y, m.width * 1.2, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${m.alpha * 0.95})`;
-          ctx.shadowBlur = 10;
-          ctx.shadowColor = '#38bdf8';
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        });
+        }
 
-      } else if (activeBgMode === 1) {
-        // ── RENDER FONDO 1: CONSTELACIONES ──
-        for (let i = 0; i < constellationStars.length; i++) {
-          for (let j = i + 1; j < constellationStars.length; j++) {
-            const dist = Math.hypot(constellationStars[i].x - constellationStars[j].x, constellationStars[i].y - constellationStars[j].y);
-            if (dist < 110) {
-              const lineAlpha = (1 - dist / 110) * 0.15;
-              ctx.beginPath();
-              ctx.moveTo(constellationStars[i].x, constellationStars[i].y);
-              ctx.lineTo(constellationStars[j].x, constellationStars[j].y);
-              ctx.strokeStyle = `rgba(165, 195, 255, ${lineAlpha})`;
-              ctx.lineWidth = 0.65;
-              ctx.stroke();
-            }
-          }
-          const mouseDist = Math.hypot(constellationStars[i].x - mouse.x, constellationStars[i].y - mouse.y);
-          if (mouseDist < 140) {
-            const mouseLineAlpha = (1 - mouseDist / 140) * 0.28;
+        // Reacción al mouse (apartado suave y resplandor)
+        if (mouse.isHover) {
+          const dx = n.x - mouse.x;
+          const dy = n.y - mouse.y;
+          const distMouse = Math.hypot(dx, dy);
+
+          if (distMouse < mouseInfluenceDist) {
+            const factor = (1 - distMouse / mouseInfluenceDist);
+            // Repulsión ligera que simula respiración
+            n.x += (dx / distMouse) * factor * 0.75;
+            n.y += (dy / distMouse) * factor * 0.75;
+            currentAlpha = Math.min(1, currentAlpha + factor * 0.6);
+
+            // Línea de acento viva hacia el cursor
             ctx.beginPath();
-            ctx.moveTo(constellationStars[i].x, constellationStars[i].y);
+            ctx.moveTo(n.x, n.y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(129, 140, 248, ${mouseLineAlpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.strokeStyle = `rgba(129, 140, 248, ${factor * 0.45})`;
+            ctx.lineWidth = 1;
             ctx.stroke();
           }
         }
-        constellationStars.forEach(s => {
-          s.x += s.dx; s.y += s.dy;
-          if (s.x < 0) s.x = W; if (s.x > W) s.x = 0;
-          if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
-          const twinkle = 0.6 + 0.4 * Math.sin(frame * s.twinkleSpeed + s.phase);
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(224, 238, 255, ${s.baseAlpha * twinkle})`;
-          ctx.fill();
-        });
 
-      } else if (activeBgMode === 3) {
-        // ── RENDER FONDO 3: CIELO Y PASTO ──
+        currentAlpha = Math.min(1, currentAlpha + boostAlpha);
 
-        // 1. Estrellas en el cielo
-        skyStars.forEach(s => {
-          s.alpha += Math.sin(frame * s.twinkle) * 0.05;
-          const a = Math.max(0, Math.min(1, s.alpha));
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255, 255, 255, ${a})`;
-          ctx.fill();
-        });
-
-        // 2. Luciérnagas parpadeantes
-        fireflies.forEach(f => {
-          f.phase += f.phaseSpeed;
-          f.x += f.vx + Math.sin(f.phase * 0.7) * 0.3;
-          f.y += f.vy + Math.cos(f.phase * 0.5) * 0.25;
-          if (f.x < 0) f.x = W; if (f.x > W) f.x = 0;
-          if (f.y < 0) f.y = H; if (f.y > H) f.y = 0;
-          const glow = 0.3 + 0.7 * Math.abs(Math.sin(f.phase));
-          const alpha = glow * 0.85;
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.r * 3.5, 0, Math.PI * 2);
-          ctx.fillStyle = `hsla(${f.hue}, 90%, 65%, ${glow * 0.12})`;
-          ctx.fill();
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-          ctx.fillStyle = `hsla(${f.hue}, 95%, 80%, ${alpha})`;
-          ctx.shadowBlur = 14;
-          ctx.shadowColor = `hsl(${f.hue}, 90%, 65%)`;
-          ctx.fill();
-          ctx.shadowBlur = 0;
-        });
-
-        // 3. Pasto en movimiento (dibujado desde la base H)
-        grass.forEach(g => {
-          const sway = Math.sin(frame * g.swaySpeed + g.phase) * g.swayAmount;
-          ctx.beginPath();
-          ctx.moveTo(g.x, H + 10);
-          ctx.quadraticCurveTo(g.x + sway / 2, H - g.height / 2, g.x + sway, H - g.height);
-          ctx.quadraticCurveTo(g.x + sway / 2 + g.width, H - g.height / 2, g.x + g.width * 1.5, H + 10);
-          ctx.fillStyle = g.color;
-          ctx.fill();
-        });
-
-      } else if (activeBgMode === 4) {
-        // ── RENDER FONDO 4: NATURALEZA SERENA (NUBES, COLINAS, RAYOS DE LUZ & HOJAS) ──
-
-        // 1. Colinas verdes (Paisaje sereno)
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(0, H);
-        ctx.lineTo(0, H * 0.85);
-        ctx.bezierCurveTo(W * 0.3, H * 0.75, W * 0.7, H * 0.9, W, H * 0.8);
-        ctx.lineTo(W, H);
-        ctx.closePath();
-        let gradHill1 = ctx.createLinearGradient(0, H * 0.7, 0, H);
-        gradHill1.addColorStop(0, 'rgba(167, 243, 208, 0.4)');
-        gradHill1.addColorStop(1, 'rgba(52, 211, 153, 0.5)');
-        ctx.fillStyle = gradHill1;
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.moveTo(0, H);
-        ctx.lineTo(0, H * 0.9);
-        ctx.bezierCurveTo(W * 0.4, H * 0.95, W * 0.6, H * 0.82, W, H * 0.88);
-        ctx.lineTo(W, H);
-        ctx.closePath();
-        let gradHill2 = ctx.createLinearGradient(0, H * 0.8, 0, H);
-        gradHill2.addColorStop(0, 'rgba(110, 231, 183, 0.6)');
-        gradHill2.addColorStop(1, 'rgba(16, 185, 129, 0.7)');
-        ctx.fillStyle = gradHill2;
-        ctx.fill();
-        ctx.restore();
-
-        // 2. Nubes suaves en movimiento
-        zenClouds.forEach(cloud => {
-          cloud.x += cloud.speed;
-          if (cloud.x > W + 200 * cloud.scale) cloud.x = -200 * cloud.scale;
-
-          ctx.save();
-          ctx.translate(cloud.x, cloud.y);
-          ctx.scale(cloud.scale, cloud.scale);
-          ctx.fillStyle = `rgba(255, 255, 255, ${cloud.opacity})`;
-          
-          cloud.puffs.forEach(puff => {
+        // Conexiones entre nodos cercanos
+        for (let j = i + 1; j < nodes.length; j++) {
+          const n2 = nodes[j];
+          const dist = Math.hypot(n.x - n2.x, n.y - n2.y);
+          if (dist < maxConnectDist) {
+            const lineAlpha = (1 - dist / maxConnectDist) * 0.22 * ((currentAlpha + n2.baseAlpha) / 2);
             ctx.beginPath();
-            ctx.arc(puff.ox, puff.oy, puff.r, 0, Math.PI * 2);
-            ctx.fill();
-          });
-          ctx.restore();
-        });
-
-        // 3. Rayos suaves de sol matutino (Komorebi)
-        drawZenSunrays(frame);
-
-        // 4. Partículas tenues de polen / motes de luz dorada
-        zenMotes.forEach(m => {
-          m.y += m.vy;
-          m.x += m.vx;
-          m.pulse += 0.015;
-          if (m.y < -5) { m.y = H + 5; m.x = Math.random() * W; }
-          if (m.x < 0) m.x = W;
-          if (m.x > W) m.x = 0;
-          const a = m.alpha * (0.6 + 0.4 * Math.sin(m.pulse));
-          ctx.beginPath();
-          ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(16, 185, 129, ${a * 0.6})`;
-          ctx.fill();
-        });
-
-        // 3. Hojas botánicas que caen con balanceo suave y armonioso
-        zenLeaves.forEach(leaf => {
-          leaf.y += leaf.vy;
-          leaf.x += leaf.vx;
-          leaf.angle += leaf.rotSpeed;
-
-          // Reaparición suave al salir de la pantalla
-          if (leaf.y > H + 25) {
-            leaf.y = -25;
-            leaf.x = Math.random() * W;
+            ctx.moveTo(n.x, n.y);
+            ctx.lineTo(n2.x, n2.y);
+            ctx.strokeStyle = `rgba(165, 180, 252, ${lineAlpha})`;
+            ctx.lineWidth = 0.85;
+            ctx.stroke();
           }
-          if (leaf.x < -40) leaf.x = W + 30;
-          if (leaf.x > W + 40) leaf.x = -30;
+        }
 
-          drawBotanicalLeaf(leaf, frame);
-        });
+        // Dibujar el nodo
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${n.glowHue}, ${currentAlpha})`;
+        ctx.fill();
+
+        // Resplandor en nodos más iluminados
+        if (currentAlpha > 0.65) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.radius * 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${n.glowHue}, ${currentAlpha * 0.25})`;
+          ctx.fill();
+        }
       }
 
-      requestAnimationFrame(renderSpace);
+      animationFrameId = requestAnimationFrame(renderConstellation);
     }
 
+    function drawConstellationStatic() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < nodes.length; i++) {
+        const n = nodes[i];
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${n.glowHue}, ${n.baseAlpha})`;
+        ctx.fill();
+      }
+    }
 
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    setBgMode(2);
-    renderSpace();
-
-    // ── 2. SEGUIMIENTO DE CURSOR GLOW ──
-    const cursorLight = document.getElementById('cursor-light');
     window.addEventListener('mousemove', (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
-      requestAnimationFrame(() => {
-        cursorLight.style.left = `${e.clientX}px`;
-        cursorLight.style.top = `${e.clientY}px`;
-      });
+      mouse.isHover = true;
+    });
+    window.addEventListener('mouseleave', () => {
+      mouse.isHover = false;
+      mouse.x = -2000;
+      mouse.y = -2000;
     });
 
-    // ── 3. PLAYLISTS & CAMBIO CON BURBUJAS 1, 2, 3 ACOPLADAS ──
-    const videoPlaylists = {
-      ia: [
-        { src: 'assets/videos_ia/1.mp4?v=7', label: 'Spot Cinemático 16:9 · Dirección Visual' },
-        { src: 'assets/videos_ia/2.mp4?v=7', label: 'Composición Publicitaria con IA' },
-        { src: 'assets/videos_ia/3.mp4?v=7', label: 'Presentación Comercial IA' },
-        { src: 'assets/videos_ia/4.mp4?v=7', label: 'Efectos Avanzados de Generación' },
-        { src: 'assets/videos_ia/5.mp4?v=7', label: 'Innovación Visual y Tendencias' }
-      ],
-      edit: [
-        { src: 'assets/videos_edit/1.mp4?v=7', label: 'Cortes Comerciales de Alto Impacto' },
-        { src: 'assets/videos_edit/2.mp4?v=7', label: 'Ritmo Acelerado & Sound Design' },
-        { src: 'assets/videos_edit/3.mp4?v=7', label: 'Edición Dinámica · CapCut & Premiere' },
-        { src: 'assets/videos_edit/4.mp4?v=7', label: 'Producto y Detalle de Calidad' }
-      ],
-      reels: [
-        { src: 'assets/reels/1.mp4?v=8', label: 'Campaña Vertical 9:16 · Conversión' },
-        { src: 'assets/reels/2.mp4?v=8', label: 'Hook en 3 Segundos · Retención' },
-        { src: 'assets/reels/3.mp4?v=8', label: 'Formato TikTok / Reels de Pauta' },
-        { src: 'assets/reels/4.mp4?v=8', label: 'Micro-Contenido de Alto Rendimiento' }
-      ]
-    };
-
-    function jumpToVideo(category, index) {
-      const list = videoPlaylists[category];
-      if (index < 0 || index >= list.length) return;
-
-      playVideoSwitchSfx();
-
-      const item = list[index];
-      const videoEl = document.getElementById(`video-${category}`);
-      const labelEl = document.getElementById(`label-${category}`);
-
-      videoEl.src = item.src;
-      videoEl.play();
-      labelEl.innerText = item.label;
-
-      // Actualizar estado activo de las burbujas
-      const bubblesContainer = document.getElementById(`bubbles-${category}`);
-      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
-      bubbles.forEach((b, i) => {
-        b.classList.toggle('active', i === index);
-      });
-    }
-
-    // ── 4. MODAL FULLSCREEN DE VIDEO CON AUDIO ──
-    const modal = document.getElementById('videoModal');
-    const modalVideo = document.getElementById('modalVideo');
-    const modalTitle = document.getElementById('modalTitle');
-
-    function openFullscreenVideo(src, title) {
-      playModalOpenSfx();
-      modalVideo.src = src;
-      modalTitle.innerText = title;
-      modal.classList.add('active');
-      modalVideo.play();
-    }
-
-    function closeFullscreenVideo() {
-      modalVideo.pause();
-      modalVideo.src = '';
-      modal.classList.remove('active');
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeFullscreenVideo();
+    // Pausar render cuando la pestaña no esté visible para ahorrar batería
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      } else if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(renderConstellation);
+      }
     });
 
-    // ═══════════════════════════════════════════════════════════════════
-    // AUDIO ENGINE HÁPTICO PROFESIONAL (SINTETIZADO WEB AUDIO API)
-    // ═══════════════════════════════════════════════════════════════════
+    // Inicializar canvas
+    resizeCanvas();
+    if (!prefersReducedMotion) {
+      animationFrameId = requestAnimationFrame(renderConstellation);
+    }
+
+    // ── 2. MOTOR DE SONIDO (WEB AUDIO API SINTETIZADO) ──
     let _audioCtx = null;
-    let soundEnabled = true;
+    let soundEnabled = localStorage.getItem('portfolio_sfx') !== 'false';
     let _lastHoverTime = 0;
+    let isVideoAudioPlaying = false;
 
     function _getAudioCtx() {
       if (!_audioCtx) {
@@ -2126,63 +1525,71 @@
     window.addEventListener('pointerdown', unlockAudio, { once: true });
     window.addEventListener('keydown', unlockAudio, { once: true });
 
-    // Sonido 1: Click Mecánico Háptico Preciso (35ms)
-    function playClickSfx() {
-      if (!soundEnabled) return;
-      try {
-        const ctx = _getAudioCtx();
-        if (!ctx) return;
-        if (ctx.state === 'suspended') ctx.resume();
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(620, now);
-        osc.frequency.exponentialRampToValueAtTime(900, now + 0.035);
-        gain.gain.setValueAtTime(0.05, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.035);
-      } catch (e) { /* silencioso */ }
-    }
-
-    // Sonido 2: Hover Micro-Blip Cristalino (22ms, debounced)
+    // Tick suave al pasar el mouse por botones y tarjetas
     function playHoverSfx() {
-      if (!soundEnabled) return;
+      if (!soundEnabled || isVideoAudioPlaying) return;
       const nowMs = performance.now();
-      if (nowMs - _lastHoverTime < 50) return;
+      if (nowMs - _lastHoverTime < 55) return;
       _lastHoverTime = nowMs;
 
       try {
         const ctx = _getAudioCtx();
         if (!ctx) return;
         if (ctx.state === 'suspended') ctx.resume();
+
         const now = ctx.currentTime;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
+
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(1200, now);
-        osc.frequency.exponentialRampToValueAtTime(1550, now + 0.022);
+        osc.frequency.setValueAtTime(1180, now);
+        osc.frequency.exponentialRampToValueAtTime(1420, now + 0.022);
+
         gain.gain.setValueAtTime(0.012, now);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
+
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start(now);
         osc.stop(now + 0.022);
-      } catch (e) { /* silencioso */ }
+      } catch (e) { }
     }
 
-    // Sonido 3: Cambio de Video (Doble nota armónica D5 -> A5)
-    function playVideoSwitchSfx() {
-      if (!soundEnabled) return;
+    // Click corto y mecánico al presionar
+    function playClickSfx() {
+      if (!soundEnabled || isVideoAudioPlaying) return;
       try {
         const ctx = _getAudioCtx();
         if (!ctx) return;
         if (ctx.state === 'suspended') ctx.resume();
-        const now = ctx.currentTime;
 
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(620, now);
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.035);
+
+        gain.gain.setValueAtTime(0.045, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.035);
+      } catch (e) { }
+    }
+
+    // Armonía suave al cambiar de video (burbujas)
+    function playVideoSwitchSfx() {
+      if (!soundEnabled || isVideoAudioPlaying) return;
+      try {
+        const ctx = _getAudioCtx();
+        if (!ctx) return;
+        if (ctx.state === 'suspended') ctx.resume();
+
+        const now = ctx.currentTime;
         const osc1 = ctx.createOscillator();
         const gain1 = ctx.createGain();
         osc1.type = 'sine';
@@ -2197,60 +1604,143 @@
         const osc2 = ctx.createOscillator();
         const gain2 = ctx.createGain();
         osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(880.00, now + 0.03);
-        gain2.gain.setValueAtTime(0.035, now + 0.03);
-        gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.1);
+        osc2.frequency.setValueAtTime(880.00, now + 0.028);
+        gain2.gain.setValueAtTime(0.035, now + 0.028);
+        gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.095);
         osc2.connect(gain2);
         gain2.connect(ctx.destination);
-        osc2.start(now + 0.03);
-        osc2.stop(now + 0.1);
-      } catch (e) { /* silencioso */ }
+        osc2.start(now + 0.028);
+        osc2.stop(now + 0.095);
+      } catch (e) { }
     }
 
-    // Sonido 4: Apertura de Video Modal (Swell Cinematográfico)
+    // Whoosh cinematográfico al abrir video en fullscreen
     function playModalOpenSfx() {
       if (!soundEnabled) return;
       try {
         const ctx = _getAudioCtx();
         if (!ctx) return;
         if (ctx.state === 'suspended') ctx.resume();
+
         const now = ctx.currentTime;
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
+
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(150, now);
-        osc.frequency.exponentialRampToValueAtTime(70, now + 0.18);
+        osc.frequency.setValueAtTime(140, now);
+        osc.frequency.exponentialRampToValueAtTime(65, now + 0.18);
+
         gain.gain.setValueAtTime(0.05, now);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
+
         osc.connect(gain);
         gain.connect(ctx.destination);
         osc.start(now);
         osc.stop(now + 0.18);
-      } catch (e) { /* silencioso */ }
+      } catch (e) { }
     }
 
-    // Toggle de Sonido (Botón SFX)
+    // Toggle SFX con persistencia en localStorage
     const soundToggleBtn = document.getElementById('soundToggleBtn');
     if (soundToggleBtn) {
+      if (!soundEnabled) soundToggleBtn.classList.add('is-muted');
+
       soundToggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         soundEnabled = !soundEnabled;
+        localStorage.setItem('portfolio_sfx', soundEnabled ? 'true' : 'false');
         soundToggleBtn.classList.toggle('is-muted', !soundEnabled);
         soundToggleBtn.setAttribute('title', soundEnabled ? 'Silenciar efectos de sonido' : 'Activar efectos de sonido');
         if (soundEnabled) playClickSfx();
       });
     }
 
-    // Conectar sonidos de hover a elementos interactivos
-    const interactiveSelectors = '.mirror-pill, .mirror-btn-contactame, .btn-mirror-tiktok, .btn-mirror-sound, .video-bubble, .video-card-mirror, .mirror-card';
-    document.querySelectorAll(interactiveSelectors).forEach((el) => {
-      el.addEventListener('mouseenter', playHoverSfx);
-    });
-
-    // Escucha clicks en toda la página (excepto sobre controles de video)
+    // Escucha de clicks globales: emite onda de luz en la constelación y sonido háptico
     window.addEventListener('mousedown', (e) => {
       if (e.target.closest('video')) return;
+      addClickRipple(e.clientX, e.clientY);
       playClickSfx();
+    });
+
+    // Conectar hover a todos los elementos interactivos
+    function attachHoverSfx() {
+      const selectors = '.nav-btn-cv, .nav-btn-contact, .btn-icon-square, .video-bubble, .video-card-mirror, .skill-card, .footer-btn';
+      document.querySelectorAll(selectors).forEach(el => {
+        el.addEventListener('mouseenter', playHoverSfx);
+      });
+    }
+    attachHoverSfx();
+
+    // ── 3. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=9) ──
+    const videoPlaylists = {
+      ia: [
+        { src: 'assets/videos_ia/1.mp4?v=9', label: 'Spot Cinemático 16:9 · Dirección Visual' },
+        { src: 'assets/videos_ia/2.mp4?v=9', label: 'Composición Publicitaria con IA' },
+        { src: 'assets/videos_ia/3.mp4?v=9', label: 'Presentación Comercial IA' },
+        { src: 'assets/videos_ia/4.mp4?v=9', label: 'Efectos Avanzados de Generación' },
+        { src: 'assets/videos_ia/5.mp4?v=9', label: 'Innovación Visual y Tendencias' }
+      ],
+      edit: [
+        { src: 'assets/videos_edit/1.mp4?v=9', label: 'Spot Comercial · Clínica Mater Salud' },
+        { src: 'assets/videos_edit/2.mp4?v=9', label: 'Cortes Dinámicos de Alto Impacto' },
+        { src: 'assets/videos_edit/3.mp4?v=9', label: 'Montaje y Edición de Producto' },
+        { src: 'assets/videos_edit/4.mp4?v=9', label: 'Ritmo Comercial y Retención' }
+      ],
+      reels: [
+        { src: 'assets/reels/1.mp4?v=9', label: 'Campaña Vertical 9:16 · Conversión' },
+        { src: 'assets/reels/2.mp4?v=9', label: 'Hook en 3 Segundos · Retención' },
+        { src: 'assets/reels/3.mp4?v=9', label: 'Formato TikTok / Reels de Pauta' },
+        { src: 'assets/reels/4.mp4?v=9', label: 'Micro-Contenido de Alto Rendimiento' }
+      ]
+    };
+
+    function jumpToVideo(category, index) {
+      const list = videoPlaylists[category];
+      if (index < 0 || index >= list.length) return;
+
+      playVideoSwitchSfx();
+
+      const item = list[index];
+      const videoEl = document.getElementById(`video-${category}`);
+      const labelEl = document.getElementById(`label-${category}`);
+
+      videoEl.src = item.src;
+      videoEl.play().catch(() => {});
+      labelEl.innerText = item.label;
+
+      const bubblesContainer = document.getElementById(`bubbles-${category}`);
+      const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
+      bubbles.forEach((b, i) => {
+        b.classList.toggle('active', i === index);
+      });
+    }
+
+    // ── 4. LIGHTBOX MODAL FULLSCREEN ──
+    const modal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalTitle = document.getElementById('modalTitle');
+
+    function openFullscreenVideo(src, title) {
+      playModalOpenSfx();
+      isVideoAudioPlaying = true;
+      modalVideo.src = src;
+      modalTitle.innerText = title;
+      modal.classList.add('active');
+      modalVideo.play().catch(() => {});
+    }
+
+    function closeFullscreenVideo(e) {
+      if (e && e.target && e.target.closest('.modal-container') && !e.target.classList.contains('modal-close-btn')) {
+        return;
+      }
+      isVideoAudioPlaying = false;
+      modalVideo.pause();
+      modalVideo.src = '';
+      modal.classList.remove('active');
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeFullscreenVideo();
     });
   </script>
 
