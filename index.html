@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="night">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fabricio Jeremy Albarracín Sotelo — Practicante de Marketing · Portafolio 2026</title>
+
+  <!-- Script Inline Anti-FOUC (Previene parpadeo aplicando tema antes de renderizar) -->
+  <script>
+    (function() {
+      try {
+        const saved = localStorage.getItem('portfolio_theme') || 'night';
+        document.documentElement.setAttribute('data-theme', saved);
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Google Fonts: Instrument Sans & Plus Jakarta Sans con font-display: swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,12 +67,13 @@
 
   <style>
     /* ═══════════════════════════════════════════════════════════════════
-       1. VARIABLES DEL SISTEMA DE DISEÑO (OBSIDIAN DARK LUXURY)
+       1. VARIABLES DEL SISTEMA DE DISEÑO DUAL (NOCHE OBSIDIAN & DÍA BOSQUE)
        ═══════════════════════════════════════════════════════════════════ */
-    :root {
-      --bg-dark: #030305;
+    :root, [data-theme="night"] {
+      --bg-base: #030305;
       --bg-surface: rgba(10, 13, 20, 0.72);
-      --bg-surface-hover: rgba(14, 18, 28, 0.85);
+      --bg-surface-hover: rgba(14, 18, 28, 0.88);
+      --bg-card: rgba(10, 13, 20, 0.72);
       --border-subtle: rgba(255, 255, 255, 0.08);
       --border-hover: rgba(129, 140, 248, 0.4);
       --border-light: rgba(255, 255, 255, 0.16);
@@ -71,21 +82,96 @@
       --ink-secondary: #94a3b8;
       --ink-muted: #64748b;
 
-      /* Acento principal unificado: Azul-Violeta */
+      /* Acento principal: Azul-Violeta */
       --accent-primary: #818cf8;
+      --accent-secondary: #c7d2fe;
       --accent-soft: rgba(129, 140, 248, 0.12);
       --accent-glow: rgba(99, 102, 241, 0.25);
 
-      /* Verde exclusivo para el CTA principal de contacto */
-      --cta-green: #10b981;
-      --cta-green-glow: rgba(16, 185, 129, 0.35);
+      /* Botón de Contacto (Verde Esmeralda Neón) */
+      --cta-btn-bg: #10b981;
+      --cta-btn-color: #022c22;
+      --cta-btn-hover: #15803d;
+      --cta-btn-glow: rgba(16, 185, 129, 0.35);
+
+      /* Botón Secundario e Iconos */
+      --nav-btn-bg: rgba(255, 255, 255, 0.04);
+      --nav-btn-color: #ffffff;
+      --nav-btn-border: rgba(255, 255, 255, 0.16);
+      --nav-btn-hover-bg: rgba(255, 255, 255, 0.09);
+
+      --card-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8);
+      --card-shadow-hover: 0 24px 50px -10px rgba(0, 0, 0, 0.95), 0 0 30px var(--accent-glow);
+
+      --bubble-bg: rgba(255, 255, 255, 0.05);
+      --bubble-color: #94a3b8;
+      --bubble-active-bg: #ffffff;
+      --bubble-active-color: #030305;
+      --bubble-active-glow: 0 0 14px rgba(255, 255, 255, 0.75);
+
+      --seal-fill: #94a3b8;
+      --seal-icon: #818cf8;
+
+      --hero-accent-grad: linear-gradient(135deg, #c7d2fe 0%, #818cf8 100%);
+      --vignette-bg: radial-gradient(circle at center, transparent 38%, rgba(3, 3, 5, 0.72) 80%, rgba(3, 3, 5, 0.98) 100%);
+      --ambient-glow-bg: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(129, 140, 248, 0.03) 45%, transparent 70%);
 
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 22px;
       --radius-pill: 9999px;
-
       --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════════
+       MODO DÍA: "BOSQUE AL AMANECER" (CALMA CHILL & NATURALEZA)
+       ═══════════════════════════════════════════════════════════════════ */
+    [data-theme="day"] {
+      --bg-base: #F6F1E7;
+      --bg-surface: rgba(255, 255, 255, 0.74);
+      --bg-surface-hover: rgba(255, 255, 255, 0.94);
+      --bg-card: rgba(255, 255, 255, 0.78);
+      --border-subtle: rgba(47, 107, 79, 0.16);
+      --border-hover: rgba(47, 107, 79, 0.45);
+      --border-light: rgba(47, 107, 79, 0.22);
+
+      --ink-primary: #1F2A24;
+      --ink-secondary: #4F5F55;
+      --ink-muted: #6B7B71;
+
+      /* Acento principal: Verde Bosque */
+      --accent-primary: #2F6B4F;
+      --accent-secondary: #C9794A; /* Terracota suave para detalles */
+      --accent-soft: rgba(47, 107, 79, 0.11);
+      --accent-glow: rgba(47, 107, 79, 0.22);
+
+      /* Botón de Contacto (Verde Bosque Cálido) */
+      --cta-btn-bg: #2F6B4F;
+      --cta-btn-color: #F6F1E7;
+      --cta-btn-hover: #24553E;
+      --cta-btn-glow: rgba(47, 107, 79, 0.28);
+
+      /* Botón Secundario e Iconos */
+      --nav-btn-bg: rgba(47, 107, 79, 0.06);
+      --nav-btn-color: #1F2A24;
+      --nav-btn-border: rgba(47, 107, 79, 0.24);
+      --nav-btn-hover-bg: rgba(47, 107, 79, 0.12);
+
+      --card-shadow: 0 12px 34px -8px rgba(31, 42, 36, 0.08);
+      --card-shadow-hover: 0 18px 42px -8px rgba(31, 42, 36, 0.15), 0 0 24px rgba(47, 107, 79, 0.12);
+
+      --bubble-bg: rgba(47, 107, 79, 0.07);
+      --bubble-color: #4F5F55;
+      --bubble-active-bg: #2F6B4F;
+      --bubble-active-color: #F6F1E7;
+      --bubble-active-glow: 0 0 14px rgba(47, 107, 79, 0.38);
+
+      --seal-fill: #2F6B4F;
+      --seal-icon: #C9794A;
+
+      --hero-accent-grad: linear-gradient(135deg, #2F6B4F 0%, #1c4532 100%);
+      --vignette-bg: radial-gradient(circle at center, transparent 45%, rgba(227, 235, 221, 0.4) 85%, rgba(246, 241, 231, 0.8) 100%);
+      --ambient-glow-bg: radial-gradient(circle, rgba(255, 233, 184, 0.45) 0%, rgba(227, 235, 221, 0.25) 50%, transparent 75%);
     }
 
     *, *::before, *::after {
@@ -96,7 +182,29 @@
 
     html {
       scroll-behavior: smooth;
-      background-color: var(--bg-dark);
+      background-color: var(--bg-base);
+    }
+
+    /* Soporte de View Transitions con Circular Clip-Path */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+    ::view-transition-old(root) {
+      z-index: 1;
+    }
+    ::view-transition-new(root) {
+      z-index: 9999;
+    }
+
+    /* Fallback de transición suave para navegadores sin View Transitions */
+    html.theme-transitioning,
+    html.theme-transitioning * {
+      transition: background-color 0.6s var(--ease-luxury),
+                  color 0.6s var(--ease-luxury),
+                  border-color 0.6s var(--ease-luxury),
+                  box-shadow 0.6s var(--ease-luxury) !important;
     }
 
     /* ═══════════════════════════════════════════════════════════════════
@@ -108,18 +216,23 @@
               auto !important;
     }
 
-    a, button, .video-bubble, .btn-icon-sfx, .btn-icon-tiktok {
+    a, button, .video-bubble, .btn-icon-sfx, .btn-icon-tiktok, .theme-toggle-btn {
       cursor: url("assets/cursor_monkey.png") 4 4,
               pointer !important;
     }
 
     /* Cursor en estado PLAY al pasar por los videos */
     .video-card-mirror, .video-card-mirror * {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232F6B4F' stroke='%23ffffff' stroke-width='2'/%3E%3Cpolygon points='12,10 23,16 12,22' fill='%23ffffff'/%3E%3C/svg%3E") 16 16,
+              pointer !important;
+    }
+
+    [data-theme="night"] .video-card-mirror, [data-theme="night"] .video-card-mirror * {
       cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%236366f1' stroke='%23ffffff' stroke-width='2'/%3E%3Cpolygon points='12,10 23,16 12,22' fill='%23ffffff'/%3E%3C/svg%3E") 16 16,
               pointer !important;
     }
 
-    /* En pantallas táctiles se desactiva el cursor custom */
+    /* Desactivar cursor custom en pantallas táctiles */
     @media (hover: none) and (pointer: coarse) {
       body, a, button, input, select, .video-card-mirror, .video-card-mirror * {
         cursor: auto !important;
@@ -127,7 +240,7 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-base);
       color: var(--ink-primary);
       font-family: "Instrument Sans", -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.55;
@@ -135,6 +248,13 @@
       position: relative;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    [data-theme="day"] body {
+      background: radial-gradient(circle at 85% 8%, rgba(255, 233, 184, 0.65) 0%, transparent 45%),
+                  linear-gradient(180deg, #F6F1E7 0%, #EEF4E8 65%, #E3EBDD 100%);
+      background-attachment: fixed;
     }
 
     a {
@@ -143,7 +263,7 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       3. NUEVO FONDO: CANVAS DE CONSTELACIÓN VIVA INTERACTIVA
+       3. CANVAS DE FONDO ADAPTABLE (NOCHE: CONSTELACIÓN / DÍA: BOSQUE)
        ═══════════════════════════════════════════════════════════════════ */
     .constellation-wrapper {
       position: fixed;
@@ -153,7 +273,7 @@
       pointer-events: none;
       z-index: 0;
       overflow: hidden;
-      background: var(--bg-dark);
+      background: transparent;
     }
 
     #spaceCanvas {
@@ -164,30 +284,41 @@
       display: block;
     }
 
-    /* Viñeta oscura periférica para profundidad cinematográfica */
+    /* Viñeta periférica */
     .constellation-vignette {
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at center, transparent 38%, rgba(3, 3, 5, 0.72) 80%, rgba(3, 3, 5, 0.98) 100%);
+      background: var(--vignette-bg);
       pointer-events: none;
+      transition: background 0.5s ease;
     }
 
-    /* Resplandor sutil azul-violeta detrás del Hero */
+    /* Resplandor ambiental Hero */
     .hero-ambient-glow {
       position: absolute;
       top: -120px;
       left: 15%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(129, 140, 248, 0.03) 45%, transparent 70%);
+      background: var(--ambient-glow-bg);
       border-radius: 50%;
       filter: blur(80px);
       pointer-events: none;
       z-index: 0;
+      transition: all 0.5s ease;
+    }
+
+    [data-theme="day"] .hero-ambient-glow {
+      top: -80px;
+      left: auto;
+      right: 5%;
+      width: 650px;
+      height: 650px;
+      filter: blur(90px);
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       4. ESTRUCTURA Y CONTENEDOR PRINCIPAL (ESCALA 8px)
+       4. ESTRUCTURA Y CONTENEDOR PRINCIPAL
        ═══════════════════════════════════════════════════════════════════ */
     .container {
       max-width: 1200px;
@@ -222,7 +353,7 @@
       font-size: 0.95rem;
       font-weight: 800;
       letter-spacing: -0.01em;
-      color: #ffffff;
+      color: var(--ink-primary);
     }
 
     .brand-badge {
@@ -231,7 +362,7 @@
       letter-spacing: 0.08em;
       padding: 3px 8px;
       border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--nav-btn-bg);
       color: var(--ink-muted);
       border: 1px solid var(--border-subtle);
       text-transform: uppercase;
@@ -249,9 +380,9 @@
       height: 40px;
       padding: 0 1.15rem;
       border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-light);
-      color: #ffffff;
+      background: var(--nav-btn-bg);
+      border: 1px solid var(--nav-btn-border);
+      color: var(--nav-btn-color);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: -0.01em;
@@ -259,63 +390,109 @@
       align-items: center;
       gap: 7px;
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: all 0.25s var(--ease-luxury);
       white-space: nowrap;
     }
 
     .nav-btn-cv:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.35);
+      background: var(--nav-btn-hover-bg);
+      border-color: var(--accent-primary);
       transform: translateY(-2px);
     }
 
-    /* Botón Primario: Contáctame (Verde vibrante único) */
+    /* Botón Primario: Contáctame */
     .nav-btn-contact {
       height: 40px;
       padding: 0 1.3rem;
       border-radius: var(--radius-pill);
-      background: var(--cta-green);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: #022c22;
+      background: var(--cta-btn-bg);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: var(--cta-btn-color);
       font-size: 0.82rem;
       font-weight: 900;
       letter-spacing: 0.02em;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 4px 18px var(--cta-green-glow);
+      box-shadow: 0 4px 18px var(--cta-btn-glow);
       transition: all 0.25s var(--ease-luxury);
       white-space: nowrap;
     }
 
     .nav-btn-contact:hover {
-      background: #15803d;
+      background: var(--cta-btn-hover);
       color: #ffffff;
-      box-shadow: 0 6px 24px rgba(22, 163, 74, 0.55);
+      box-shadow: 0 6px 24px var(--cta-btn-glow);
       transform: translateY(-2px);
     }
 
-    /* Icon Buttons: TikTok y SFX */
+    /* Botones de Icono: Tema, TikTok y SFX (40x40px idénticos) */
     .btn-icon-square {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-light);
-      color: #ffffff;
+      background: var(--nav-btn-bg);
+      border: 1px solid var(--nav-btn-border);
+      color: var(--nav-btn-color);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       transition: all 0.25s var(--ease-luxury);
       flex-shrink: 0;
+      position: relative;
     }
 
     .btn-icon-square:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: var(--nav-btn-hover-bg);
       border-color: var(--accent-primary);
       color: var(--accent-primary);
       transform: translateY(-2px);
+    }
+
+    .btn-icon-square:focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 2px;
+    }
+
+    /* ── ANIMACIÓN FLUIDA DEL BOTÓN DE TEMA (SOL / LUNA) ── */
+    .theme-icon-container {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-icon-sun, .theme-icon-moon {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s var(--ease-luxury), opacity 0.4s var(--ease-luxury);
+    }
+
+    /* Modo Noche: Luna visible, Sol oculto */
+    [data-theme="night"] .theme-icon-moon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+      color: #c7d2fe;
+    }
+    [data-theme="night"] .theme-icon-sun {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.35);
+    }
+
+    /* Modo Día: Sol visible con rayos cálidos, Luna oculta */
+    [data-theme="day"] .theme-icon-sun {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+      color: #C9794A;
+    }
+    [data-theme="day"] .theme-icon-moon {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.35);
     }
 
     /* SFX Toggle con barras activas */
@@ -350,7 +527,7 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       6. HERO SECTION: JERARQUÍA PULIDA & REVEAL ESCALONADO
+       6. HERO SECTION: JERARQUÍA ELEVADA & REVEAL ESCALONADO
        ═══════════════════════════════════════════════════════════════════ */
     .header-section {
       padding-top: 3.5rem;
@@ -365,7 +542,6 @@
       max-width: 780px;
     }
 
-    /* Fila de Badges Superiores */
     .hero-top-badges {
       display: flex;
       align-items: center;
@@ -380,6 +556,7 @@
       gap: 8px;
       background: rgba(16, 185, 129, 0.08);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(16, 185, 129, 0.25);
       color: #34d399;
       padding: 5px 14px;
@@ -387,6 +564,12 @@
       font-size: 0.74rem;
       font-weight: 800;
       letter-spacing: 0.05em;
+    }
+
+    [data-theme="day"] .status-radar-pill {
+      background: rgba(47, 107, 79, 0.08);
+      border-color: rgba(47, 107, 79, 0.24);
+      color: #2F6B4F;
     }
 
     .radar-dot {
@@ -397,6 +580,10 @@
       position: relative;
     }
 
+    [data-theme="day"] .radar-dot {
+      background: #2F6B4F;
+    }
+
     .radar-dot::after {
       content: "";
       position: absolute;
@@ -404,6 +591,10 @@
       border-radius: 50%;
       border: 1.5px solid #10b981;
       animation: radarPulse 2s ease-out infinite;
+    }
+
+    [data-theme="day"] .radar-dot::after {
+      border-color: #2F6B4F;
     }
 
     @keyframes radarPulse {
@@ -422,11 +613,17 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       background: var(--accent-soft);
-      border: 1px solid rgba(129, 140, 248, 0.28);
-      color: #c7d2fe;
+      border: 1px solid var(--border-light);
+      color: var(--accent-secondary);
     }
 
-    /* Título Hero: Limpio, Grande, Acento Solo en "marketing" */
+    [data-theme="day"] .cycle-pill {
+      background: rgba(201, 121, 74, 0.12);
+      border-color: rgba(201, 121, 74, 0.32);
+      color: #a4582d;
+    }
+
+    /* Título Hero Limpio */
     .hero-title {
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: clamp(2.5rem, 5.2vw, 4rem);
@@ -434,7 +631,7 @@
       letter-spacing: -0.035em;
       line-height: 1.08;
       margin-bottom: 1.25rem;
-      color: #ffffff;
+      color: var(--ink-primary);
     }
 
     .hero-title .hero-bullet {
@@ -443,7 +640,7 @@
     }
 
     .hero-title .hero-accent {
-      background: linear-gradient(135deg, #c7d2fe 0%, #818cf8 100%);
+      background: var(--hero-accent-grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline;
@@ -457,7 +654,7 @@
     }
 
     .profile-bio strong {
-      color: #ffffff;
+      color: var(--ink-primary);
       font-weight: 700;
     }
 
@@ -477,13 +674,15 @@
       width: 100%;
       height: 100%;
       animation: rotateSeal 24s linear infinite;
-      fill: var(--ink-secondary);
+      fill: var(--seal-fill);
+      transition: fill 0.4s ease;
     }
 
     .seal-center-icon {
       position: absolute;
-      color: var(--accent-primary);
+      color: var(--seal-icon);
       font-size: 1.2rem;
+      transition: color 0.4s ease;
     }
 
     @keyframes rotateSeal {
@@ -513,7 +712,7 @@
       width: 100%;
     }
 
-    /* Cabecera de Columna: Misma altura fija para alineación exacta */
+    /* Cabecera de Columna: Misma altura fija (38px) */
     .col-header {
       display: flex;
       align-items: center;
@@ -528,23 +727,23 @@
       font-size: clamp(1.25rem, 1.6vw, 1.5rem);
       font-weight: 800;
       letter-spacing: -0.02em;
-      color: #ffffff;
+      color: var(--ink-primary);
       white-space: nowrap;
     }
 
-    /* Etiquetas Unificadas en Estilo Azul-Violeta */
+    /* Etiquetas Unificadas */
     .col-tag {
       font-size: 0.72rem;
       font-weight: 700;
       padding: 4px 11px;
       border-radius: var(--radius-pill);
       background: var(--accent-soft);
-      border: 1px solid rgba(129, 140, 248, 0.28);
-      color: #c7d2fe;
+      border: 1px solid var(--border-light);
+      color: var(--accent-primary);
       white-space: nowrap;
     }
 
-    /* Tarjeta de Video: Portada viva, sin capa lechosa, altura calibrada */
+    /* Tarjeta de Video: Portada viva a todo color */
     .video-card-mirror {
       position: relative;
       width: 100%;
@@ -555,7 +754,7 @@
       overflow: hidden;
       background: #000000;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8);
+      box-shadow: var(--card-shadow);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -567,8 +766,7 @@
     .video-card-mirror:hover {
       transform: translateY(-6px);
       border-color: var(--border-hover);
-      box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.95),
-                  0 0 30px var(--accent-glow);
+      box-shadow: var(--card-shadow-hover);
     }
 
     .video-player-frame {
@@ -594,8 +792,7 @@
       align-items: center;
       justify-content: center;
       z-index: 3;
-      /* Viñeta sutil solo abajo para que el video no se lave */
-      background: linear-gradient(to top, rgba(3, 3, 5, 0.75) 0%, transparent 45%);
+      background: linear-gradient(to top, rgba(3, 3, 5, 0.72) 0%, transparent 45%);
       transition: opacity 0.25s ease;
     }
 
@@ -605,6 +802,7 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.35);
       color: #ffffff;
       display: flex;
@@ -621,11 +819,11 @@
     .video-card-mirror:hover .card-play-icon {
       opacity: 1;
       transform: scale(1.05);
-      background: rgba(129, 140, 248, 0.85);
+      background: var(--accent-primary);
       border-color: #ffffff;
     }
 
-    /* Caption Inferior con Ecualizador Animado */
+    /* Caption Inferior con Ecualizador (Siempre oscuro y nítido para legibilidad) */
     .video-bottom-info {
       position: absolute;
       bottom: 12px;
@@ -635,7 +833,8 @@
       border-radius: var(--radius-pill);
       background: rgba(6, 9, 16, 0.88);
       backdrop-filter: blur(16px);
-      border: 1px solid var(--border-subtle);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       color: #ffffff;
       font-size: 0.73rem;
       font-weight: 700;
@@ -669,7 +868,7 @@
       100% { transform: scaleY(1.2); }
     }
 
-    /* Barra de Navegación de Burbujas (Alineada en una sola línea horizontal) */
+    /* Barra de Burbujas de Navegación */
     .video-bubbles-bar {
       display: flex;
       align-items: center;
@@ -677,12 +876,14 @@
       gap: 8px;
       height: 42px;
       margin-top: 14px;
-      background: rgba(10, 13, 20, 0.75);
+      background: var(--bg-surface);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-subtle);
       padding: 6px 14px;
       border-radius: var(--radius-pill);
       align-self: center;
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
     .video-bubble {
@@ -694,23 +895,23 @@
       justify-content: center;
       font-size: 0.72rem;
       font-weight: 800;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--ink-secondary);
+      background: var(--bubble-bg);
+      color: var(--bubble-color);
       border: 1px solid var(--border-subtle);
       transition: all 0.2s ease;
     }
 
     .video-bubble:hover {
-      background: rgba(255, 255, 255, 0.18);
-      color: #ffffff;
+      background: var(--accent-soft);
+      color: var(--ink-primary);
       transform: scale(1.12);
     }
 
     .video-bubble.active {
-      background: #ffffff;
-      color: #030305;
-      border-color: #ffffff;
-      box-shadow: 0 0 14px rgba(255, 255, 255, 0.75);
+      background: var(--bubble-active-bg);
+      color: var(--bubble-active-color);
+      border-color: var(--bubble-active-bg);
+      box-shadow: var(--bubble-active-glow);
       transform: scale(1.1);
     }
 
@@ -726,7 +927,7 @@
       font-family: "Plus Jakarta Sans", sans-serif;
       font-size: clamp(1.4rem, 2vw, 1.85rem);
       font-weight: 800;
-      color: #ffffff;
+      color: var(--ink-primary);
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
       display: flex;
@@ -746,24 +947,26 @@
     }
 
     .skill-card {
-      background: var(--bg-surface);
+      background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       padding: 1.6rem 1.6rem;
       backdrop-filter: blur(16px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--card-shadow);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transition: transform 0.25s var(--ease-luxury),
                   border-color 0.25s ease,
-                  box-shadow 0.25s ease;
+                  box-shadow 0.25s ease,
+                  background 0.3s ease;
     }
 
     .skill-card:hover {
       transform: translateY(-4px);
       border-color: var(--border-hover);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px var(--accent-glow);
+      box-shadow: var(--card-shadow-hover);
     }
 
     .skill-top-bar {
@@ -779,8 +982,8 @@
       padding: 3px 10px;
       border-radius: var(--radius-pill);
       background: var(--accent-soft);
-      border: 1px solid rgba(129, 140, 248, 0.25);
-      color: #c7d2fe;
+      border: 1px solid var(--border-light);
+      color: var(--accent-primary);
     }
 
     .skill-icon-wrap {
@@ -792,7 +995,7 @@
       font-size: 1.12rem;
       font-weight: 800;
       letter-spacing: -0.015em;
-      color: #ffffff;
+      color: var(--ink-primary);
       margin-bottom: 0.55rem;
     }
 
@@ -803,12 +1006,12 @@
     }
 
     .skill-card p strong {
-      color: #ffffff;
+      color: var(--ink-primary);
       font-weight: 600;
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       9. FOOTER PULIDO Y SIN ARTEFACTOS
+       9. FOOTER PULIDO
        ═══════════════════════════════════════════════════════════════════ */
     .site-footer {
       border-top: 1px solid var(--border-subtle);
@@ -823,7 +1026,7 @@
     }
 
     .site-footer strong {
-      color: #ffffff;
+      color: var(--ink-primary);
     }
 
     .footer-actions {
@@ -837,24 +1040,24 @@
       border-radius: var(--radius-pill);
       font-size: 0.8rem;
       font-weight: 700;
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--nav-btn-bg);
       border: 1px solid var(--border-subtle);
-      color: #ffffff;
+      color: var(--ink-primary);
       transition: all 0.2s ease;
     }
 
     .footer-btn:hover {
-      background: rgba(255, 255, 255, 0.09);
-      border-color: rgba(255, 255, 255, 0.25);
+      background: var(--nav-btn-hover-bg);
+      border-color: var(--accent-primary);
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       10. LIGHTBOX MODAL DE VIDEO (PANTALLA CASI COMPLETA CON AUDIO)
+       10. LIGHTBOX MODAL (PANTALLA COMPLETA OSCURA EN AMBOS TEMAS)
        ═══════════════════════════════════════════════════════════════════ */
     .video-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(3, 3, 5, 0.92);
+      background: rgba(3, 3, 5, 0.94);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       z-index: 1000;
@@ -879,8 +1082,8 @@
       border-radius: var(--radius-lg);
       overflow: hidden;
       background: #000000;
-      border: 1px solid var(--border-light);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 40px var(--accent-glow);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 0, 0, 0.7);
       display: flex;
       flex-direction: column;
     }
@@ -902,7 +1105,7 @@
     .modal-info-bar {
       padding: 0.9rem 1.2rem;
       background: #060810;
-      border-top: 1px solid var(--border-subtle);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -939,7 +1142,7 @@
     }
 
     .modal-close-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.25);
       transform: scale(1.08);
     }
 
@@ -963,7 +1166,7 @@
     .reveal-item-4 { animation: heroReveal 0.85s var(--ease-luxury) 0.38s both; }
 
     /* ═══════════════════════════════════════════════════════════════════
-       12. RESPONSIVE Y ACCESIBILIDAD (PREFERS-REDUCED-MOTION)
+       12. RESPONSIVE Y ACCESIBILIDAD
        ═══════════════════════════════════════════════════════════════════ */
     @media (max-width: 960px) {
       .videos-columns-grid {
@@ -1017,7 +1220,7 @@
 <body>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       FONDO: RED DE CONSTELACIÓN VIVA (CANVAS INTERACTIVO)
+       FONDO INTERACTIVO: CANVAS ADAPTABLE (NOCHE / DÍA)
        ═══════════════════════════════════════════════════════════════════ -->
   <div class="constellation-wrapper">
     <canvas id="spaceCanvas"></canvas>
@@ -1028,7 +1231,7 @@
   <div class="container">
     
     <!-- ═══════════════════════════════════════════════════════════════════
-         NAVBAR PULIDA Y UNIFICADA
+         NAVBAR PULIDA CON TOGGLE DE TEMA DÍA/NOCHE
          ═══════════════════════════════════════════════════════════════════ -->
     <nav class="top-nav-bar reveal-item-1">
       <div class="nav-brand">
@@ -1042,11 +1245,34 @@
           <span>📄 Currículum 📥</span>
         </a>
 
-        <!-- CTA Principal: Contáctame (Verde vibrante único) -->
+        <!-- CTA Principal: Contáctame -->
         <a href="https://wa.me/51933734627?text=Hola%20Fabricio,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20conversar." target="_blank" class="nav-btn-contact" title="Contactar directamente por WhatsApp">
           <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.072.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.825z"/></svg>
           <span>CONTÁCTAME</span>
         </a>
+
+        <!-- Botón de Tema Día/Noche con Transformación Fluida de Icono -->
+        <button id="themeToggleBtn" class="btn-icon-square theme-toggle-btn"
+                aria-label="Cambiar a modo día/noche" aria-pressed="false" title="Cambiar a modo día/noche">
+          <div class="theme-icon-container">
+            <!-- Icono Sol (Modo Día) -->
+            <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4.8"></circle>
+              <line x1="12" y1="1" x2="12" y2="3.2"></line>
+              <line x1="12" y1="20.8" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.8" y2="5.8"></line>
+              <line x1="18.2" y1="18.2" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3.2" y2="12"></line>
+              <line x1="20.8" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.8" y2="18.2"></line>
+              <line x1="18.2" y1="5.8" x2="19.78" y2="4.22"></line>
+            </svg>
+            <!-- Icono Luna (Modo Noche) -->
+            <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </div>
+        </button>
 
         <!-- TikTok Icon Button -->
         <a href="https://www.tiktok.com/@blushadown" target="_blank" class="btn-icon-square btn-icon-tiktok" title="Perfil oficial de TikTok">
@@ -1080,7 +1306,7 @@
           <span class="hero-bullet">▪</span> <span>Practicante de</span> <span class="hero-accent">marketing</span>
         </h1>
 
-        <!-- Texto de Perfil con Alto Impacto y Coherencia Audiovisual -->
+        <!-- Texto de Perfil -->
         <p class="profile-bio reveal-item-3">
           Enfocado en <strong>creación de contenido audiovisual de alta conversión</strong> y <strong>estrategia digital B2B</strong>. Combino edición dinámica (Reels, TikTok, Spots Corporativos y herramientas de IA) con prospección y gestión en CRM (Salesforce / HubSpot) para transformar ideas en piezas comerciales que retienen audiencia y generan clientes.
         </p>
@@ -1125,7 +1351,7 @@
               <div class="card-play-icon">▶</div>
             </div>
 
-            <!-- Caption Inferior -->
+            <!-- Caption Inferior Nítido -->
             <div class="video-bottom-info">
               <div class="audio-dots"><span></span><span></span><span></span></div>
               <span id="label-ia">Spot Cinemático 16:9 · Dirección Visual</span>
@@ -1296,19 +1522,112 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       SCRIPTS: RED DE CONSTELACIÓN VIVA & MOTOR HÁPTICO
+       SCRIPTS: MOTOR DUAL DE FONDO, MODO DÍA/NOCHE & AUDIO HÁPTICO
        ═══════════════════════════════════════════════════════════════════ -->
   <script>
-    // ── 1. RED DE CONSTELACIÓN VIVA INTERACTIVA ──
+    // ── 1. GESTIÓN DEL TEMA (DÍA / NOCHE) & VIEW TRANSITIONS ──
+    let currentTheme = document.documentElement.getAttribute('data-theme') || 'night';
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateThemeButtonState() {
+      if (!themeToggleBtn) return;
+      const isDay = currentTheme === 'day';
+      themeToggleBtn.setAttribute('aria-pressed', isDay ? 'true' : 'false');
+      themeToggleBtn.setAttribute('title', isDay ? 'Cambiar a modo noche' : 'Cambiar a modo día');
+    }
+    updateThemeButtonState();
+
+    function applyTheme(newTheme) {
+      currentTheme = newTheme;
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('portfolio_theme', newTheme);
+      updateThemeButtonState();
+      
+      // Actualizar partículas según el nuevo tema
+      if (newTheme === 'day') {
+        initDayParticles();
+        startAmbientSound();
+      } else {
+        initNightNodes();
+        stopAmbientSound();
+      }
+
+      if (prefersReducedMotion) {
+        if (newTheme === 'day') drawDayStatic();
+        else drawConstellationStatic();
+      }
+    }
+
+    function toggleThemeHandler(event) {
+      const nextTheme = currentTheme === 'day' ? 'night' : 'day';
+
+      // Reproducir sonido orgánico de amanecer o anochecer
+      playThemeSwitchSfx(nextTheme);
+
+      // Si el usuario prefiere movimiento reducido o no soporta View Transitions
+      if (prefersReducedMotion || !document.startViewTransition) {
+        document.documentElement.classList.add('theme-transitioning');
+        applyTheme(nextTheme);
+        setTimeout(() => {
+          document.documentElement.classList.remove('theme-transitioning');
+        }, 650);
+        return;
+      }
+
+      // Transición circular expansiva (Clip-Path con View Transitions API)
+      const rect = themeToggleBtn.getBoundingClientRect();
+      const x = event && event.clientX ? event.clientX : (rect.left + rect.width / 2);
+      const y = event && event.clientY ? event.clientY : (rect.top + rect.height / 2);
+
+      const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+      );
+
+      const transition = document.startViewTransition(() => {
+        applyTheme(nextTheme);
+      });
+
+      transition.ready.then(() => {
+        document.documentElement.animate(
+          {
+            clipPath: [
+              `circle(0px at ${x}px ${y}px)`,
+              `circle(${endRadius}px at ${x}px ${y}px)`
+            ]
+          },
+          {
+            duration: 550,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            pseudoElement: '::view-transition-new(root)'
+          }
+        );
+      }).catch(() => {});
+    }
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', toggleThemeHandler);
+    }
+
+    // ── 2. CANVAS DE FONDO DUAL (CONSTELACIÓN NOCHE & BOSQUE AL AMANECER) ──
     const canvas = document.getElementById('spaceCanvas');
     const ctx = canvas.getContext('2d');
     let W, H;
-    let nodes = [];
-    let waves = [];
-    let mouse = { x: -2000, y: -2000, isHover: false };
     let animationFrameId = null;
+    let mouse = { x: -2000, y: -2000, isHover: false };
+    let waves = [];
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Colecciones de Modo Noche
+    let nodes = [];
+
+    // Colecciones de Modo Día ("Bosque al amanecer")
+    let dayPollen = [];
+    let dayFireflies = [];
+    let dayLeaves = [];
+    let dayClouds = [];
+    let pollenTrail = [];
+    let sunRayOffset = 0;
 
     function resizeCanvas() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1317,23 +1636,24 @@
       canvas.width = W * dpr;
       canvas.height = H * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      initNodes();
-      if (prefersReducedMotion) {
-        drawConstellationStatic();
+
+      if (currentTheme === 'day') {
+        initDayParticles();
+        if (prefersReducedMotion) drawDayStatic();
+      } else {
+        initNightNodes();
+        if (prefersReducedMotion) drawConstellationStatic();
       }
     }
 
-    function initNodes() {
+    // Inicializar nodos de la red de noche
+    function initNightNodes() {
       nodes = [];
-      // 40 en móvil, ~85 en escritorio (entre 70 y 110)
       const count = W < 768 ? 40 : Math.min(105, Math.max(72, Math.floor((W * H) / 13500)));
-
       for (let i = 0; i < count; i++) {
         nodes.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          ox: 0,
-          oy: 0,
           vx: (Math.random() - 0.5) * 0.35,
           vy: (Math.random() - 0.5) * 0.35,
           radius: Math.random() * 1.5 + 1.1,
@@ -1345,50 +1665,281 @@
       }
     }
 
+    // Inicializar partículas del modo día ("Bosque al amanecer")
+    function initDayParticles() {
+      dayPollen = [];
+      dayFireflies = [];
+      dayLeaves = [];
+      dayClouds = [];
+      pollenTrail = [];
+
+      const isMobile = W < 768;
+      const pollenCount = isMobile ? 22 : 44; // 30 a 50 partículas
+      const fireflyCount = isMobile ? 8 : 14; // 10 a 15 luciérnagas de día
+
+      // 1. Polen y semillas doradas
+      for (let i = 0; i < pollenCount; i++) {
+        dayPollen.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.46) * 0.25,
+          vy: -Math.random() * 0.28 - 0.07,
+          radius: Math.random() * 1.4 + 1.0,
+          baseAlpha: Math.random() * 0.32 + 0.22,
+          pulse: Math.random() * Math.PI * 2,
+          pulseSpeed: Math.random() * 0.02 + 0.01,
+          color: Math.random() > 0.45 ? '218, 165, 32' : '235, 185, 95'
+        });
+      }
+
+      // 2. Luciérnagas de día (puntos verde-dorados)
+      for (let i = 0; i < fireflyCount; i++) {
+        dayFireflies.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.32,
+          vy: (Math.random() - 0.5) * 0.32,
+          radius: Math.random() * 1.7 + 1.2,
+          phase: Math.random() * Math.PI * 2,
+          speed: Math.random() * 0.03 + 0.015,
+          glowColor: Math.random() > 0.5 ? '165, 195, 80' : '210, 190, 75'
+        });
+      }
+
+      // 3. Hojas translúcidas en tonos salvia (4 hojas)
+      for (let i = 0; i < 4; i++) {
+        dayLeaves.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vy: Math.random() * 0.32 + 0.24,
+          vx: (Math.random() - 0.5) * 0.16,
+          size: Math.random() * 5 + 9,
+          rotation: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.01,
+          sway: Math.random() * Math.PI * 2,
+          swaySpeed: Math.random() * 0.016 + 0.01,
+          alpha: Math.random() * 0.12 + 0.24
+        });
+      }
+
+      // 4. Nubes difusas en la parte superior
+      for (let i = 0; i < 3; i++) {
+        dayClouds.push({
+          x: (i / 3) * W + Math.random() * 120,
+          y: Math.random() * 120 + 25,
+          vx: 0.07 + Math.random() * 0.05,
+          rx: Math.random() * 160 + 200,
+          ry: Math.random() * 55 + 75,
+          alpha: Math.random() * 0.035 + 0.02
+        });
+      }
+    }
+
     function addClickRipple(x, y) {
       waves.push({
         x: x,
         y: y,
         r: 0,
         maxR: Math.max(W, H) * 0.65,
-        speed: 7.5,
+        speed: 7.2,
         alpha: 0.95
       });
     }
 
-    function renderConstellation() {
+    // Dibujar forma orgánica de hoja con canvas paths
+    function drawOrganicLeaf(leafCtx, x, y, size, rotation, alpha) {
+      leafCtx.save();
+      leafCtx.translate(x, y);
+      leafCtx.rotate(rotation);
+      leafCtx.beginPath();
+      leafCtx.moveTo(0, -size);
+      leafCtx.bezierCurveTo(size * 0.65, -size * 0.4, size * 0.65, size * 0.4, 0, size);
+      leafCtx.bezierCurveTo(-size * 0.65, size * 0.4, -size * 0.65, -size * 0.4, 0, -size);
+      leafCtx.fillStyle = `rgba(115, 145, 120, ${alpha})`;
+      leafCtx.fill();
+
+      // Nervio central de la hoja
+      leafCtx.beginPath();
+      leafCtx.moveTo(0, -size * 0.85);
+      leafCtx.lineTo(0, size * 0.85);
+      leafCtx.strokeStyle = `rgba(80, 115, 85, ${alpha * 0.75})`;
+      leafCtx.lineWidth = 0.8;
+      leafCtx.stroke();
+      leafCtx.restore();
+    }
+
+    // Renderizado del modo Día: "Bosque al amanecer"
+    function renderForestDawn() {
       ctx.clearRect(0, 0, W, H);
 
-      // Actualizar ondas de luz del clic
+      // 1. Rayos de luz suaves en diagonal ("God rays" desde arriba a la derecha)
+      sunRayOffset += 0.0018;
+      const sunX = W * 0.94;
+      const sunY = -25;
+      for (let i = 0; i < 4; i++) {
+        const angle = 0.82 + i * 0.17 + Math.sin(sunRayOffset + i) * 0.025;
+        const length = Math.max(W, H) * 1.35;
+        const targetX = sunX - Math.cos(angle) * length;
+        const targetY = sunY + Math.sin(angle) * length;
+
+        const grad = ctx.createLinearGradient(sunX, sunY, targetX, targetY);
+        const beamAlpha = 0.024 + Math.sin(sunRayOffset * 0.7 + i) * 0.007;
+        grad.addColorStop(0, `rgba(255, 238, 190, ${beamAlpha * 1.6})`);
+        grad.addColorStop(0.5, `rgba(255, 233, 180, ${beamAlpha})`);
+        grad.addColorStop(1, 'rgba(255, 233, 180, 0)');
+
+        ctx.beginPath();
+        ctx.moveTo(sunX, sunY);
+        ctx.lineTo(targetX - 75, targetY);
+        ctx.lineTo(targetX + 75, targetY);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+
+      // 2. Nubes muy difusas en la parte superior
+      for (let i = 0; i < dayClouds.length; i++) {
+        const c = dayClouds[i];
+        c.x += c.vx;
+        if (c.x - c.rx > W) c.x = -c.rx;
+        const grad = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, c.rx);
+        grad.addColorStop(0, `rgba(255, 255, 255, ${c.alpha * 1.6})`);
+        grad.addColorStop(0.65, `rgba(255, 255, 255, ${c.alpha * 0.7})`);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+        ctx.beginPath();
+        ctx.ellipse(c.x, c.y, c.rx, c.ry, 0, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+
+      // 3. Ondas cálidas de clic
       for (let w = waves.length - 1; w >= 0; w--) {
         const wave = waves[w];
         wave.r += wave.speed;
         wave.alpha *= 0.965;
+        ctx.beginPath();
+        ctx.arc(wave.x, wave.y, wave.r, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(215, 155, 55, ${wave.alpha * 0.32})`;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        if (wave.alpha < 0.015 || wave.r > wave.maxR) waves.splice(w, 1);
+      }
 
+      // 4. Rastro de polen del cursor
+      for (let p = pollenTrail.length - 1; p >= 0; p--) {
+        const pt = pollenTrail[p];
+        pt.x += pt.vx;
+        pt.y += pt.vy;
+        pt.alpha *= 0.95;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(225, 175, 80, ${pt.alpha})`;
+        ctx.fill();
+        if (pt.alpha < 0.02) pollenTrail.splice(p, 1);
+      }
+
+      // 5. Partículas de polen y semillas doradas
+      for (let i = 0; i < dayPollen.length; i++) {
+        const p = dayPollen[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.pulse += p.pulseSpeed;
+
+        if (p.x < -10) p.x = W + 10;
+        else if (p.x > W + 10) p.x = -10;
+        if (p.y < -10) p.y = H + 10;
+        else if (p.y > H + 10) p.y = -10;
+
+        // Brisa reactiva al cursor
+        if (mouse.isHover) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 135) {
+            const factor = (1 - dist / 135);
+            p.x += (dx / dist) * factor * 1.1;
+            p.y += (dy / dist) * factor * 1.1;
+          }
+        }
+
+        const alpha = p.baseAlpha * (0.7 + 0.3 * Math.sin(p.pulse));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color}, ${alpha})`;
+        ctx.fill();
+      }
+
+      // 6. Luciérnagas de día
+      for (let i = 0; i < dayFireflies.length; i++) {
+        const f = dayFireflies[i];
+        f.x += f.vx;
+        f.y += f.vy;
+        f.phase += f.speed;
+
+        if (f.x < -20) f.x = W + 20;
+        else if (f.x > W + 20) f.x = -20;
+        if (f.y < -20) f.y = H + 20;
+        else if (f.y > H + 20) f.y = -20;
+
+        const flicker = Math.max(0, Math.sin(f.phase));
+        const alpha = 0.25 + flicker * 0.55;
+
+        // Resplandor cálido
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.radius * 2.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${f.glowColor}, ${alpha * 0.22})`;
+        ctx.fill();
+
+        // Núcleo
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${f.glowColor}, ${alpha})`;
+        ctx.fill();
+      }
+
+      // 7. Hojas translúcidas en tonos salvia cayendo y balanceándose
+      for (let i = 0; i < dayLeaves.length; i++) {
+        const l = dayLeaves[i];
+        l.sway += l.swaySpeed;
+        l.x += l.vx + Math.sin(l.sway) * 0.45;
+        l.y += l.vy;
+        l.rotation += l.rotSpeed;
+
+        if (l.y > H + 40) {
+          l.y = -30;
+          l.x = Math.random() * W;
+        }
+
+        drawOrganicLeaf(ctx, l.x, l.y, l.size, l.rotation, l.alpha);
+      }
+    }
+
+    // Renderizado del modo Noche: "Red de Constelación Viva"
+    function renderConstellation() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Ondas de luz del clic
+      for (let w = waves.length - 1; w >= 0; w--) {
+        const wave = waves[w];
+        wave.r += wave.speed;
+        wave.alpha *= 0.965;
         ctx.beginPath();
         ctx.arc(wave.x, wave.y, wave.r, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(129, 140, 248, ${wave.alpha * 0.35})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
-
-        if (wave.alpha < 0.015 || wave.r > wave.maxR) {
-          waves.splice(w, 1);
-        }
+        if (wave.alpha < 0.015 || wave.r > wave.maxR) waves.splice(w, 1);
       }
 
-      // Actualizar y dibujar nodos
       const maxConnectDist = W < 768 ? 100 : 125;
       const mouseInfluenceDist = 145;
 
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
-
-        // Deriva suave continua
         n.x += n.vx;
         n.y += n.vy;
         n.pulse += n.pulseSpeed;
 
-        // Rebote suave en los bordes
         if (n.x < 0) { n.x = 0; n.vx *= -1; }
         else if (n.x > W) { n.x = W; n.vx *= -1; }
         if (n.y < 0) { n.y = 0; n.vy *= -1; }
@@ -1397,7 +1948,6 @@
         let currentAlpha = n.baseAlpha * (0.7 + 0.3 * Math.sin(n.pulse));
         let boostAlpha = 0;
 
-        // Reacción al paso de las ondas de clic
         for (let w = 0; w < waves.length; w++) {
           const wave = waves[w];
           const distWave = Math.hypot(n.x - wave.x, n.y - wave.y);
@@ -1406,20 +1956,16 @@
           }
         }
 
-        // Reacción al mouse (apartado suave y resplandor)
         if (mouse.isHover) {
           const dx = n.x - mouse.x;
           const dy = n.y - mouse.y;
           const distMouse = Math.hypot(dx, dy);
-
           if (distMouse < mouseInfluenceDist) {
             const factor = (1 - distMouse / mouseInfluenceDist);
-            // Repulsión ligera que simula respiración
             n.x += (dx / distMouse) * factor * 0.75;
             n.y += (dy / distMouse) * factor * 0.75;
             currentAlpha = Math.min(1, currentAlpha + factor * 0.6);
 
-            // Línea de acento viva hacia el cursor
             ctx.beginPath();
             ctx.moveTo(n.x, n.y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -1431,7 +1977,6 @@
 
         currentAlpha = Math.min(1, currentAlpha + boostAlpha);
 
-        // Conexiones entre nodos cercanos
         for (let j = i + 1; j < nodes.length; j++) {
           const n2 = nodes[j];
           const dist = Math.hypot(n.x - n2.x, n.y - n2.y);
@@ -1446,13 +1991,11 @@
           }
         }
 
-        // Dibujar el nodo
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${n.glowHue}, ${currentAlpha})`;
         ctx.fill();
 
-        // Resplandor en nodos más iluminados
         if (currentAlpha > 0.65) {
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.radius * 2.2, 0, Math.PI * 2);
@@ -1460,8 +2003,16 @@
           ctx.fill();
         }
       }
+    }
 
-      animationFrameId = requestAnimationFrame(renderConstellation);
+    // Bucle principal de animación único
+    function mainCanvasLoop() {
+      if (currentTheme === 'day') {
+        renderForestDawn();
+      } else {
+        renderConstellation();
+      }
+      animationFrameId = requestAnimationFrame(mainCanvasLoop);
     }
 
     function drawConstellationStatic() {
@@ -1475,38 +2026,65 @@
       }
     }
 
+    function drawDayStatic() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < dayPollen.length; i++) {
+        const p = dayPollen[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color}, ${p.baseAlpha})`;
+        ctx.fill();
+      }
+    }
+
     window.addEventListener('resize', resizeCanvas);
     window.addEventListener('mousemove', (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
       mouse.isHover = true;
+
+      // Generar rastro suave de polen en modo día
+      if (currentTheme === 'day' && Math.random() > 0.42) {
+        pollenTrail.push({
+          x: mouse.x + (Math.random() - 0.5) * 14,
+          y: mouse.y + (Math.random() - 0.5) * 14,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35 - 0.18,
+          r: Math.random() * 1.5 + 0.8,
+          alpha: 0.65
+        });
+      }
     });
+
     window.addEventListener('mouseleave', () => {
       mouse.isHover = false;
       mouse.x = -2000;
       mouse.y = -2000;
     });
 
-    // Pausar render cuando la pestaña no esté visible para ahorrar batería
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
         if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        stopAmbientSound();
       } else if (!prefersReducedMotion) {
-        animationFrameId = requestAnimationFrame(renderConstellation);
+        animationFrameId = requestAnimationFrame(mainCanvasLoop);
+        if (currentTheme === 'day') startAmbientSound();
       }
     });
 
-    // Inicializar canvas
+    // Iniciar Canvas
     resizeCanvas();
     if (!prefersReducedMotion) {
-      animationFrameId = requestAnimationFrame(renderConstellation);
+      animationFrameId = requestAnimationFrame(mainCanvasLoop);
     }
 
-    // ── 2. MOTOR DE SONIDO (WEB AUDIO API SINTETIZADO) ──
+    // ── 3. MOTOR DE AUDIO HÁPTICO ADAPTABLE (WEB AUDIO API SINTETIZADO) ──
     let _audioCtx = null;
     let soundEnabled = localStorage.getItem('portfolio_sfx') !== 'false';
     let _lastHoverTime = 0;
     let isVideoAudioPlaying = false;
+    let ambientNode = null;
+    let ambientGain = null;
 
     function _getAudioCtx() {
       if (!_audioCtx) {
@@ -1521,11 +2099,14 @@
       if (ctx && ctx.state === 'suspended') {
         ctx.resume();
       }
+      if (soundEnabled && currentTheme === 'day' && !isVideoAudioPlaying) {
+        startAmbientSound();
+      }
     }
     window.addEventListener('pointerdown', unlockAudio, { once: true });
     window.addEventListener('keydown', unlockAudio, { once: true });
 
-    // Tick suave al pasar el mouse por botones y tarjetas
+    // Tick al pasar el mouse por elementos interactivos
     function playHoverSfx() {
       if (!soundEnabled || isVideoAudioPlaying) return;
       const nowMs = performance.now();
@@ -1541,21 +2122,33 @@
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(1180, now);
-        osc.frequency.exponentialRampToValueAtTime(1420, now + 0.022);
-
-        gain.gain.setValueAtTime(0.012, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.022);
+        if (currentTheme === 'day') {
+          // Gota de agua cálida / marimba suave
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(880, now);
+          osc.frequency.exponentialRampToValueAtTime(940, now + 0.024);
+          gain.gain.setValueAtTime(0.015, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.024);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.024);
+        } else {
+          // Tono cristalino noche
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(1180, now);
+          osc.frequency.exponentialRampToValueAtTime(1420, now + 0.022);
+          gain.gain.setValueAtTime(0.012, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.022);
+        }
       } catch (e) { }
     }
 
-    // Click corto y mecánico al presionar
+    // Clic háptico suave al presionar
     function playClickSfx() {
       if (!soundEnabled || isVideoAudioPlaying) return;
       try {
@@ -1567,21 +2160,33 @@
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(620, now);
-        osc.frequency.exponentialRampToValueAtTime(880, now + 0.035);
-
-        gain.gain.setValueAtTime(0.045, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.035);
+        if (currentTheme === 'day') {
+          // Sonido orgánico de gota y madera cálida
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(680, now + 0.038);
+          gain.gain.setValueAtTime(0.04, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.038);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.038);
+        } else {
+          // Clic mecánico estelar
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(620, now);
+          osc.frequency.exponentialRampToValueAtTime(880, now + 0.035);
+          gain.gain.setValueAtTime(0.045, now);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.035);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 0.035);
+        }
       } catch (e) { }
     }
 
-    // Armonía suave al cambiar de video (burbujas)
+    // Armonía al cambiar de video en las burbujas
     function playVideoSwitchSfx() {
       if (!soundEnabled || isVideoAudioPlaying) return;
       try {
@@ -1590,27 +2195,74 @@
         if (ctx.state === 'suspended') ctx.resume();
 
         const now = ctx.currentTime;
+        const f1 = currentTheme === 'day' ? 523.25 : 587.33; // Do5 en día, Re5 en noche
+        const f2 = currentTheme === 'day' ? 659.25 : 880.00; // Mi5 en día, La5 en noche
+
         const osc1 = ctx.createOscillator();
         const gain1 = ctx.createGain();
         osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(587.33, now);
+        osc1.frequency.setValueAtTime(f1, now);
         gain1.gain.setValueAtTime(0.035, now);
-        gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.07);
+        gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.075);
         osc1.connect(gain1);
         gain1.connect(ctx.destination);
         osc1.start(now);
-        osc1.stop(now + 0.07);
+        osc1.stop(now + 0.075);
 
         const osc2 = ctx.createOscillator();
         const gain2 = ctx.createGain();
         osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(880.00, now + 0.028);
+        osc2.frequency.setValueAtTime(f2, now + 0.028);
         gain2.gain.setValueAtTime(0.035, now + 0.028);
         gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.095);
         osc2.connect(gain2);
         gain2.connect(ctx.destination);
         osc2.start(now + 0.028);
         osc2.stop(now + 0.095);
+      } catch (e) { }
+    }
+
+    // Sonido al cambiar entre Día y Noche
+    function playThemeSwitchSfx(targetTheme) {
+      if (!soundEnabled) return;
+      try {
+        const ctx = _getAudioCtx();
+        if (!ctx) return;
+        if (ctx.state === 'suspended') ctx.resume();
+
+        const now = ctx.currentTime;
+
+        if (targetTheme === 'day') {
+          // "Amanecer": Campanilla ascendente suave (4 notas de arpa/campana)
+          const notes = [523.25, 659.25, 783.99, 1046.50]; // Do, Mi, Sol, Do
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.045);
+            gain.gain.setValueAtTime(0.028, now + idx * 0.045);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.045 + 0.16);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.045);
+            osc.stop(now + idx * 0.045 + 0.16);
+          });
+        } else {
+          // "Anochecer": Tono grave y sereno descendente
+          const notes = [440.00, 329.63, 220.00]; // La, Mi, La
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, now + idx * 0.055);
+            gain.gain.setValueAtTime(0.025, now + idx * 0.055);
+            gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.055 + 0.22);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now + idx * 0.055);
+            osc.stop(now + idx * 0.055 + 0.22);
+          });
+        }
       } catch (e) { }
     }
 
@@ -1626,9 +2278,9 @@
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
 
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(140, now);
-        osc.frequency.exponentialRampToValueAtTime(65, now + 0.18);
+        osc.type = currentTheme === 'day' ? 'sine' : 'triangle';
+        osc.frequency.setValueAtTime(currentTheme === 'day' ? 220 : 140, now);
+        osc.frequency.exponentialRampToValueAtTime(currentTheme === 'day' ? 110 : 65, now + 0.18);
 
         gain.gain.setValueAtTime(0.05, now);
         gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.18);
@@ -1638,6 +2290,46 @@
         osc.start(now);
         osc.stop(now + 0.18);
       } catch (e) { }
+    }
+
+    // Ambiente natural muy suave en Modo Día (Brisa sutil de fondo)
+    function startAmbientSound() {
+      if (!soundEnabled || isVideoAudioPlaying || currentTheme !== 'day') return;
+      try {
+        const ctx = _getAudioCtx();
+        if (!ctx || ctx.state === 'suspended') return;
+        if (ambientNode) return;
+
+        ambientGain = ctx.createGain();
+        ambientGain.gain.setValueAtTime(0.0001, ctx.currentTime);
+        ambientGain.gain.linearRampToValueAtTime(0.005, ctx.currentTime + 1.0); // Fade-in 1s
+
+        ambientNode = ctx.createOscillator();
+        ambientNode.type = 'sine';
+        ambientNode.frequency.setValueAtTime(175, ctx.currentTime);
+
+        ambientNode.connect(ambientGain);
+        ambientGain.connect(ctx.destination);
+        ambientNode.start();
+      } catch (e) {}
+    }
+
+    function stopAmbientSound() {
+      if (!ambientNode || !_audioCtx) return;
+      try {
+        const now = _audioCtx.currentTime;
+        ambientGain.gain.linearRampToValueAtTime(0.0001, now + 1.0); // Fade-out 1s
+        setTimeout(() => {
+          if (ambientNode) {
+            ambientNode.stop();
+            ambientNode.disconnect();
+            ambientNode = null;
+            ambientGain = null;
+          }
+        }, 1050);
+      } catch (e) {
+        ambientNode = null;
+      }
     }
 
     // Toggle SFX con persistencia en localStorage
@@ -1651,18 +2343,23 @@
         localStorage.setItem('portfolio_sfx', soundEnabled ? 'true' : 'false');
         soundToggleBtn.classList.toggle('is-muted', !soundEnabled);
         soundToggleBtn.setAttribute('title', soundEnabled ? 'Silenciar efectos de sonido' : 'Activar efectos de sonido');
-        if (soundEnabled) playClickSfx();
+        if (soundEnabled) {
+          playClickSfx();
+          if (currentTheme === 'day') startAmbientSound();
+        } else {
+          stopAmbientSound();
+        }
       });
     }
 
-    // Escucha de clicks globales: emite onda de luz en la constelación y sonido háptico
+    // Escucha de clics globales: genera onda luminosa y sonido háptico
     window.addEventListener('mousedown', (e) => {
-      if (e.target.closest('video')) return;
+      if (e.target.closest('video') || e.target.closest('button') || e.target.closest('a')) return;
       addClickRipple(e.clientX, e.clientY);
       playClickSfx();
     });
 
-    // Conectar hover a todos los elementos interactivos
+    // Enlazar hover a elementos interactivos
     function attachHoverSfx() {
       const selectors = '.nav-btn-cv, .nav-btn-contact, .btn-icon-square, .video-bubble, .video-card-mirror, .skill-card, .footer-btn';
       document.querySelectorAll(selectors).forEach(el => {
@@ -1671,7 +2368,7 @@
     }
     attachHoverSfx();
 
-    // ── 3. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=9) ──
+    // ── 4. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=9) ──
     const videoPlaylists = {
       ia: [
         { src: 'assets/videos_ia/1.mp4?v=9', label: 'Spot Cinemático 16:9 · Dirección Visual' },
@@ -1715,7 +2412,7 @@
       });
     }
 
-    // ── 4. LIGHTBOX MODAL FULLSCREEN ──
+    // ── 5. LIGHTBOX MODAL FULLSCREEN ──
     const modal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
     const modalTitle = document.getElementById('modalTitle');
@@ -1723,6 +2420,7 @@
     function openFullscreenVideo(src, title) {
       playModalOpenSfx();
       isVideoAudioPlaying = true;
+      stopAmbientSound();
       modalVideo.src = src;
       modalTitle.innerText = title;
       modal.classList.add('active');
@@ -1737,6 +2435,9 @@
       modalVideo.pause();
       modalVideo.src = '';
       modal.classList.remove('active');
+      if (soundEnabled && currentTheme === 'day') {
+        startAmbientSound();
+      }
     }
 
     window.addEventListener('keydown', (e) => {
