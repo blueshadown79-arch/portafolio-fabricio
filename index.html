@@ -782,6 +782,34 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      background: #000000;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Spinner sutil de buffering cuando se descarga video */
+    .video-loading-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      border-top-color: var(--accent-primary);
+      border-radius: 50%;
+      animation: videoSpin 0.75s linear infinite;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      z-index: 2;
+    }
+
+    .video-card-mirror.is-buffering .video-loading-spinner {
+      opacity: 1;
+    }
+
+    @keyframes videoSpin {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
     /* Overlay Central con Indicador de Play Discreto */
@@ -1343,8 +1371,9 @@
 
           <div class="video-card-mirror" id="card-ia">
             <div class="video-player-frame">
-              <video id="video-ia" loop playsinline muted autoplay preload="metadata" src="assets/videos_ia/1.mp4?v=9"></video>
+              <video id="video-ia" loop playsinline muted preload="metadata" poster="assets/posters/ia_1.jpg" src="assets/videos_ia/1.mp4?v=10"></video>
             </div>
+            <div class="video-loading-spinner" aria-hidden="true"></div>
 
             <!-- Overlay Play -->
             <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-ia').src, 'Videos IA — Spot Cinemático')">
@@ -1377,8 +1406,9 @@
 
           <div class="video-card-mirror" id="card-edit">
             <div class="video-player-frame">
-              <video id="video-edit" loop playsinline muted autoplay preload="metadata" src="assets/videos_edit/1.mp4?v=9"></video>
+              <video id="video-edit" loop playsinline muted preload="metadata" poster="assets/posters/edit_1.jpg" src="assets/videos_edit/1.mp4?v=10"></video>
             </div>
+            <div class="video-loading-spinner" aria-hidden="true"></div>
 
             <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-edit').src, 'Corporativos — Edición Dinámica')">
               <div class="card-play-icon">▶</div>
@@ -1408,8 +1438,9 @@
 
           <div class="video-card-mirror" id="card-reels">
             <div class="video-player-frame">
-              <video id="video-reels" loop playsinline muted autoplay preload="metadata" src="assets/reels/1.mp4?v=9"></video>
+              <video id="video-reels" loop playsinline muted preload="metadata" poster="assets/posters/reels_1.jpg" src="assets/reels/1.mp4?v=10"></video>
             </div>
+            <div class="video-loading-spinner" aria-hidden="true"></div>
 
             <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-reels').src, 'Reels — Campaña Vertical')">
               <div class="card-play-icon">▶</div>
@@ -2368,26 +2399,26 @@
     }
     attachHoverSfx();
 
-    // ── 4. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=9) ──
+    // ── 4. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=10 CON POSTERS) ──
     const videoPlaylists = {
       ia: [
-        { src: 'assets/videos_ia/1.mp4?v=9', label: 'Spot Cinemático 16:9 · Dirección Visual' },
-        { src: 'assets/videos_ia/2.mp4?v=9', label: 'Composición Publicitaria con IA' },
-        { src: 'assets/videos_ia/3.mp4?v=9', label: 'Presentación Comercial IA' },
-        { src: 'assets/videos_ia/4.mp4?v=9', label: 'Efectos Avanzados de Generación' },
-        { src: 'assets/videos_ia/5.mp4?v=9', label: 'Innovación Visual y Tendencias' }
+        { src: 'assets/videos_ia/1.mp4?v=10', poster: 'assets/posters/ia_1.jpg', label: 'Spot Cinemático 16:9 · Dirección Visual' },
+        { src: 'assets/videos_ia/2.mp4?v=10', poster: 'assets/posters/ia_2.jpg', label: 'Composición Publicitaria con IA' },
+        { src: 'assets/videos_ia/3.mp4?v=10', poster: 'assets/posters/ia_3.jpg', label: 'Presentación Comercial IA' },
+        { src: 'assets/videos_ia/4.mp4?v=10', poster: 'assets/posters/ia_4.jpg', label: 'Efectos Avanzados de Generación' },
+        { src: 'assets/videos_ia/5.mp4?v=10', poster: 'assets/posters/ia_5.jpg', label: 'Innovación Visual y Tendencias' }
       ],
       edit: [
-        { src: 'assets/videos_edit/1.mp4?v=9', label: 'Spot Comercial · Clínica Mater Salud' },
-        { src: 'assets/videos_edit/2.mp4?v=9', label: 'Cortes Dinámicos de Alto Impacto' },
-        { src: 'assets/videos_edit/3.mp4?v=9', label: 'Montaje y Edición de Producto' },
-        { src: 'assets/videos_edit/4.mp4?v=9', label: 'Ritmo Comercial y Retención' }
+        { src: 'assets/videos_edit/1.mp4?v=10', poster: 'assets/posters/edit_1.jpg', label: 'Spot Comercial · Clínica Mater Salud' },
+        { src: 'assets/videos_edit/2.mp4?v=10', poster: 'assets/posters/edit_2.jpg', label: 'Cortes Dinámicos de Alto Impacto' },
+        { src: 'assets/videos_edit/3.mp4?v=10', poster: 'assets/posters/edit_3.jpg', label: 'Montaje y Edición de Producto' },
+        { src: 'assets/videos_edit/4.mp4?v=10', poster: 'assets/posters/edit_4.jpg', label: 'Ritmo Comercial y Retención' }
       ],
       reels: [
-        { src: 'assets/reels/1.mp4?v=9', label: 'Campaña Vertical 9:16 · Conversión' },
-        { src: 'assets/reels/2.mp4?v=9', label: 'Hook en 3 Segundos · Retención' },
-        { src: 'assets/reels/3.mp4?v=9', label: 'Formato TikTok / Reels de Pauta' },
-        { src: 'assets/reels/4.mp4?v=9', label: 'Micro-Contenido de Alto Rendimiento' }
+        { src: 'assets/reels/1.mp4?v=10', poster: 'assets/posters/reels_1.jpg', label: 'Campaña Vertical 9:16 · Conversión' },
+        { src: 'assets/reels/2.mp4?v=10', poster: 'assets/posters/reels_2.jpg', label: 'Hook en 3 Segundos · Retención' },
+        { src: 'assets/reels/3.mp4?v=10', poster: 'assets/posters/reels_3.jpg', label: 'Formato TikTok / Reels de Pauta' },
+        { src: 'assets/reels/4.mp4?v=10', poster: 'assets/posters/reels_4.jpg', label: 'Micro-Contenido de Alto Rendimiento' }
       ]
     };
 
@@ -2400,7 +2431,10 @@
       const item = list[index];
       const videoEl = document.getElementById(`video-${category}`);
       const labelEl = document.getElementById(`label-${category}`);
+      const cardEl = document.getElementById(`card-${category}`);
 
+      if (cardEl) cardEl.classList.add('is-buffering');
+      if (item.poster) videoEl.poster = item.poster;
       videoEl.src = item.src;
       videoEl.play().catch(() => {});
       labelEl.innerText = item.label;
@@ -2409,6 +2443,52 @@
       const bubbles = bubblesContainer.querySelectorAll('.video-bubble');
       bubbles.forEach((b, i) => {
         b.classList.toggle('active', i === index);
+      });
+    }
+
+    // Monitoreo de buffering y recuperación ante caídas de red
+    ['ia', 'edit', 'reels'].forEach(cat => {
+      const vid = document.getElementById(`video-${cat}`);
+      const card = document.getElementById(`card-${cat}`);
+      if (!vid || !card) return;
+
+      vid.addEventListener('waiting', () => card.classList.add('is-buffering'));
+      vid.addEventListener('stalled', () => card.classList.add('is-buffering'));
+      vid.addEventListener('playing', () => card.classList.remove('is-buffering'));
+      vid.addEventListener('canplay', () => card.classList.remove('is-buffering'));
+      vid.addEventListener('error', () => {
+        card.classList.remove('is-buffering');
+        setTimeout(() => { if (vid.paused) vid.load(); }, 2000);
+      });
+    });
+
+    // Carga escalonada e IntersectionObserver para no saturar ancho de banda
+    if ('IntersectionObserver' in window) {
+      const videoSectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            // Retardo escalonado para evitar saturación simultánea de red
+            const delay = video.id === 'video-ia' ? 100 : video.id === 'video-edit' ? 350 : 600;
+            setTimeout(() => {
+              if (video.paused) {
+                video.play().catch(() => {});
+              }
+            }, delay);
+          } else {
+            // Pausar fuera de pantalla para liberar ancho de banda y rendimiento
+            if (!video.paused) {
+              video.pause();
+            }
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      ['video-ia', 'video-edit', 'video-reels'].forEach(id => {
+        const v = document.getElementById(id);
+        if (v) videoSectionObserver.observe(v);
       });
     }
 
