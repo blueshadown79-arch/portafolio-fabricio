@@ -100,6 +100,17 @@
       --nav-btn-border: rgba(255, 255, 255, 0.16);
       --nav-btn-hover-bg: rgba(255, 255, 255, 0.09);
 
+      /* Variables Liquid Glass de Freelance */
+      --bg-deep: #050608;
+      --glass-card: rgba(12, 13, 17, 0.48);
+      --glass-card-dark: rgba(8, 9, 12, 0.68);
+      --glass-inner: rgba(0, 0, 0, 0.24);
+      --border-outer: rgba(255, 255, 255, 0.13);
+      --border-pill: rgba(255, 255, 255, 0.18);
+      --inner-glow-card: inset 0 0 36px rgba(255, 255, 255, 0.14), inset 0 1px 1px rgba(255, 255, 255, 0.24);
+      --inner-glow-pill: inset 0 0 24px rgba(255, 255, 255, 0.15);
+      --shadow-card: 0 28px 70px rgba(0, 0, 0, 0.46);
+
       --card-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.8);
       --card-shadow-hover: 0 24px 50px -10px rgba(0, 0, 0, 0.95), 0 0 30px var(--accent-glow);
 
@@ -208,33 +219,32 @@
     }
 
     /* ═══════════════════════════════════════════════════════════════════
-       2. CURSOR PERSONALIZADO (MONITO + ESTADO PLAY + FALLBACK)
+       2. CURSOR PERSONALIZADO (SPARK CLEAN & POINTER DE FREELANCE)
        ═══════════════════════════════════════════════════════════════════ */
-    body, a, button, input, select {
-      cursor: url("assets/cursor_monkey.png") 4 4,
-              url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M4 1 L7 20 L11 13 L20 10 Z' fill='white' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E") 4 1,
-              auto !important;
+    html {
+      cursor: url("assets/cursor_spark_clean.svg") 11 7, auto;
     }
 
-    a, button, .video-bubble, .btn-icon-sfx, .btn-icon-tiktok, .theme-toggle-btn {
-      cursor: url("assets/cursor_monkey.png") 4 4,
-              pointer !important;
+    body {
+      cursor: url("assets/cursor_spark_clean.svg") 11 7, auto;
     }
 
-    /* Cursor en estado PLAY al pasar por los videos */
-    .video-card-mirror, .video-card-mirror * {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232F6B4F' stroke='%23ffffff' stroke-width='2'/%3E%3Cpolygon points='12,10 23,16 12,22' fill='%23ffffff'/%3E%3C/svg%3E") 16 16,
-              pointer !important;
+    a, button, [role="button"], input, select,
+    .video-card-mirror, .video-card-mirror *,
+    .card-play-overlay, .card-play-icon,
+    .btn-icon-square, .nav-btn-cv, .nav-btn-contact,
+    .video-bubble, .skill-card, .skill-card *,
+    .brand-badge, .brand-badge--freelance, .freelance-link-pill,
+    .status-radar-pill, .cycle-pill,
+    .modal-close-btn, [data-theme="night"] .video-card-mirror,
+    [data-theme="night"] .video-card-mirror * {
+      cursor: url("assets/cursor_spark_pointer.svg") 11 7, pointer !important;
     }
 
-    [data-theme="night"] .video-card-mirror, [data-theme="night"] .video-card-mirror * {
-      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%236366f1' stroke='%23ffffff' stroke-width='2'/%3E%3Cpolygon points='12,10 23,16 12,22' fill='%23ffffff'/%3E%3C/svg%3E") 16 16,
-              pointer !important;
-    }
-
-    /* Desactivar cursor custom en pantallas táctiles */
     @media (hover: none) and (pointer: coarse) {
-      body, a, button, input, select, .video-card-mirror, .video-card-mirror * {
+      html, body, a, button, [role="button"], input, select,
+      .video-card-mirror, .video-card-mirror *,
+      .card-play-overlay, .btn-icon-square, .skill-card {
         cursor: auto !important;
       }
     }
@@ -265,15 +275,53 @@
     /* ═══════════════════════════════════════════════════════════════════
        3. CANVAS DE FONDO ADAPTABLE (NOCHE: CONSTELACIÓN / DÍA: BOSQUE)
        ═══════════════════════════════════════════════════════════════════ */
+    /* Fondo atmosférico Selv (Costa al atardecer + parallax interactivo) */
+    .selv-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      background: #050608;
+    }
+
+    .selv-backdrop__img {
+      position: absolute;
+      inset: -3%;
+      width: 106%;
+      height: 106%;
+      object-fit: cover;
+      object-position: center 35%;
+      transform: translate3d(var(--bg-x, 0px), var(--bg-y, 0px), 0) scale(1.03);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .selv-backdrop__fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(8, 10, 15, 0.04) 0%,
+        rgba(8, 10, 15, 0.16) 48%,
+        rgba(4, 5, 8, 0.66) 84%,
+        rgba(4, 5, 8, 0.92) 100%
+      );
+    }
+
+    [data-theme="day"] .selv-backdrop {
+      opacity: 0.18;
+    }
+
     .constellation-wrapper {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
       overflow: hidden;
       background: transparent;
+      opacity: 0.35;
     }
 
     #spaceCanvas {
@@ -823,23 +871,27 @@
       aspect-ratio: 9 / 14;
       height: 480px;
       max-height: 480px;
-      border-radius: var(--radius-lg);
+      border-radius: 28px;
       overflow: hidden;
-      background: #000000;
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--card-shadow);
+      background: var(--glass-card);
+      backdrop-filter: blur(28px) saturate(135%);
+      -webkit-backdrop-filter: blur(28px) saturate(135%);
+      border: 1px solid var(--border-outer);
+      box-shadow: var(--inner-glow-card), var(--shadow-card);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      transition: transform 0.3s var(--ease-luxury),
+      transition: transform 0.35s var(--ease-luxury),
                   border-color 0.3s ease,
                   box-shadow 0.3s ease;
     }
 
     .video-card-mirror:hover {
       transform: translateY(-6px);
-      border-color: var(--border-hover);
-      box-shadow: var(--card-shadow-hover);
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 0 42px rgba(255, 255, 255, 0.22),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.38),
+                  0 34px 85px rgba(0, 0, 0, 0.65);
     }
 
     .video-player-frame {
@@ -1048,26 +1100,27 @@
     }
 
     .skill-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.6rem 1.6rem;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: var(--card-shadow);
+      background: var(--glass-card);
+      border: 1px solid var(--border-outer);
+      border-radius: 28px;
+      padding: 2rem 2rem;
+      backdrop-filter: blur(28px) saturate(135%);
+      -webkit-backdrop-filter: blur(28px) saturate(135%);
+      box-shadow: var(--inner-glow-card), var(--shadow-card);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.25s var(--ease-luxury),
-                  border-color 0.25s ease,
-                  box-shadow 0.25s ease,
-                  background 0.3s ease;
+      transition: transform 0.3s var(--ease-luxury),
+                  border-color 0.3s ease,
+                  box-shadow 0.3s ease;
     }
 
     .skill-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-hover);
-      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.26);
+      box-shadow: inset 0 0 42px rgba(255, 255, 255, 0.22),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.38),
+                  0 32px 80px rgba(0, 0, 0, 0.58);
     }
 
     .skill-top-bar {
@@ -1180,11 +1233,13 @@
       width: 100%;
       max-width: 480px;
       max-height: 92vh;
-      border-radius: var(--radius-lg);
+      border-radius: 32px;
       overflow: hidden;
-      background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 40px rgba(0, 0, 0, 0.7);
+      background: var(--glass-card-dark);
+      backdrop-filter: blur(28px) saturate(135%);
+      -webkit-backdrop-filter: blur(28px) saturate(135%);
+      border: 1px solid var(--border-outer);
+      box-shadow: var(--inner-glow-card), 0 35px 90px rgba(0, 0, 0, 0.9);
       display: flex;
       flex-direction: column;
     }
@@ -1323,10 +1378,22 @@
   <!-- ═══════════════════════════════════════════════════════════════════
        FONDO INTERACTIVO: CANVAS ADAPTABLE (NOCHE / DÍA)
        ═══════════════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════════════
+       FONDO ATMOSFÉRICO DE COSTA AL ATARDECER (ESTILO FREELANCE / SELV)
+       ═══════════════════════════════════════════════════════════════════ -->
+  <div class="selv-backdrop" aria-hidden="true">
+    <img
+      id="selvBgImg"
+      src="assets/selv_coastal_bg.png"
+      alt=""
+      class="selv-backdrop__img"
+    />
+    <div class="selv-backdrop__fade"></div>
+  </div>
+
   <div class="constellation-wrapper">
     <canvas id="spaceCanvas"></canvas>
     <div class="constellation-vignette"></div>
-    <div class="hero-ambient-glow"></div>
   </div>
 
   <div class="container">
@@ -2597,6 +2664,14 @@
         startAmbientSound();
       }
     }
+
+    // Parallax suave del paisaje de fondo de Freelance
+    window.addEventListener('pointermove', (e) => {
+      const x = ((e.clientX / window.innerWidth) - 0.5) * -18;
+      const y = ((e.clientY / window.innerHeight) - 0.5) * -12;
+      document.documentElement.style.setProperty('--bg-x', `${x.toFixed(1)}px`);
+      document.documentElement.style.setProperty('--bg-y', `${y.toFixed(1)}px`);
+    });
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeFullscreenVideo();
