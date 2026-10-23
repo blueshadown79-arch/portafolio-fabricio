@@ -356,6 +356,79 @@
       color: var(--ink-primary);
     }
 
+    
+    .brand-badge--freelance {
+      background: rgba(234, 179, 8, 0.12);
+      border-color: rgba(234, 179, 8, 0.35);
+      color: #facc15;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .brand-badge--freelance:hover {
+      background: rgba(234, 179, 8, 0.25);
+      border-color: #facc15;
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    [data-theme="day"] .brand-badge--freelance {
+      background: rgba(201, 121, 74, 0.12);
+      border-color: rgba(201, 121, 74, 0.4);
+      color: #b45309;
+    }
+
+    [data-theme="day"] .brand-badge--freelance:hover {
+      color: #78350f;
+      border-color: #b45309;
+    }
+
+    .freelance-link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.14), rgba(249, 115, 22, 0.14));
+      border: 1px solid rgba(234, 179, 8, 0.38);
+      color: #facc15;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 10px rgba(234, 179, 8, 0.1);
+      transition: all 0.25s var(--ease-luxury);
+      cursor: pointer;
+    }
+
+    .freelance-link-pill:hover {
+      background: linear-gradient(135deg, rgba(234, 179, 8, 0.25), rgba(249, 115, 22, 0.25));
+      border-color: #facc15;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25);
+    }
+
+    [data-theme="day"] .freelance-link-pill {
+      background: linear-gradient(135deg, rgba(201, 121, 74, 0.12), rgba(217, 119, 6, 0.12));
+      border-color: rgba(201, 121, 74, 0.4);
+      color: #b45309;
+      box-shadow: 0 2px 8px rgba(180, 83, 9, 0.08);
+    }
+
+    [data-theme="day"] .freelance-link-pill:hover {
+      background: linear-gradient(135deg, rgba(201, 121, 74, 0.22), rgba(217, 119, 6, 0.22));
+      border-color: #b45309;
+      color: #78350f;
+    }
+
     .brand-badge {
       font-size: 0.65rem;
       font-weight: 800;
@@ -1265,6 +1338,7 @@
       <div class="nav-brand">
         <span class="brand-name">Fabricio Jeremy Albarracín Sotelo</span>
         <span class="brand-badge">PORTAFOLIO 2026</span>
+        <a href="https://freelance-24.pages.dev" target="_blank" rel="noopener noreferrer" class="brand-badge brand-badge--freelance" title="Ver portafolio de video vertical y landing pages freelance">⚡ FREELANCE ↗</a>
       </div>
 
       <div class="nav-right-actions">
@@ -1327,6 +1401,10 @@
             <span>DISPONIBLE PARA PROYECTOS B2B &amp; NUEVOS RETOS</span>
           </div>
           <span class="cycle-pill">🎓 ÚLTIMO CICLO</span>
+          <a href="https://freelance-24.pages.dev" target="_blank" rel="noopener noreferrer" class="freelance-link-pill" title="Ver portafolio freelance de video vertical y landing pages">
+            <span>⚡ Freelance</span>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
         </div>
 
         <!-- Título Principal Limpio (Acento solo en marketing) -->
