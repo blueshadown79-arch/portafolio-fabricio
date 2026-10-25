@@ -370,7 +370,7 @@
        4. ESTRUCTURA Y CONTENEDOR PRINCIPAL
        ═══════════════════════════════════════════════════════════════════ */
     .container {
-      max-width: 1200px;
+      max-width: 1320px;
       margin: 0 auto;
       padding-left: clamp(1rem, 4vw, 2.5rem);
       padding-right: clamp(1rem, 4vw, 2.5rem);
@@ -954,8 +954,8 @@
 
     .videos-columns-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(1.2rem, 2vw, 1.8rem);
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(1rem, 1.35vw, 1.35rem);
       width: 100%;
       align-items: start;
     }
@@ -1457,7 +1457,16 @@
     /* ═══════════════════════════════════════════════════════════════════
        12. RESPONSIVE Y ACCESIBILIDAD
        ═══════════════════════════════════════════════════════════════════ */
-    @media (max-width: 960px) {
+    @media (max-width: 1120px) and (min-width: 681px) {
+      .videos-columns-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 760px;
+        margin: 0 auto;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 680px) {
       .videos-columns-grid {
         grid-template-columns: 1fr;
         max-width: 440px;
@@ -1751,7 +1760,7 @@
 
           <div class="video-card-mirror" id="card-reels">
             <div class="video-player-frame">
-              <video id="video-reels" loop playsinline muted preload="metadata" poster="assets/posters/reels_1.jpg" src="assets/reels/1.mp4?v=10"></video>
+              <video id="video-reels" loop playsinline muted preload="metadata" poster="assets/posters/reels_1.jpg?v=11" src="assets/reels/1.mp4?v=11"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1771,6 +1780,37 @@
             <button class="video-bubble" onclick="jumpToVideo('reels', 1)">2</button>
             <button class="video-bubble" onclick="jumpToVideo('reels', 2)">3</button>
             <button class="video-bubble" onclick="jumpToVideo('reels', 3)">4</button>
+          </div>
+        </div>
+
+        <!-- COLUMNA 4: MARCA PERSONAL -->
+        <div class="video-col col-marca">
+          <div class="col-header">
+            <h2 class="col-title">Marca Personal</h2>
+            <span class="col-tag">✦ Storytelling &amp; Autoridad</span>
+          </div>
+
+          <div class="video-card-mirror" id="card-marca">
+            <div class="video-player-frame">
+              <video id="video-marca" loop playsinline muted preload="metadata" poster="assets/posters/marca_1.jpg?v=11" src="assets/marca_personal/1.mp4?v=11"></video>
+            </div>
+            <div class="video-loading-spinner" aria-hidden="true"></div>
+
+            <div class="card-play-overlay" onclick="openFullscreenVideo(document.getElementById('video-marca').src, 'Marca Personal — Storytelling &amp; Autoridad')">
+              <div class="card-play-icon">▶</div>
+            </div>
+
+            <div class="video-bottom-info">
+              <div class="audio-dots"><span></span><span></span><span></span></div>
+              <span id="label-marca">Estrategia &amp; Storytelling · Marca Personal</span>
+            </div>
+          </div>
+
+          <!-- Burbujas de Navegación (3 videos) -->
+          <div class="video-bubbles-bar" id="bubbles-marca">
+            <button class="video-bubble active" onclick="jumpToVideo('marca', 0)">1</button>
+            <button class="video-bubble" onclick="jumpToVideo('marca', 1)">2</button>
+            <button class="video-bubble" onclick="jumpToVideo('marca', 2)">3</button>
           </div>
         </div>
 
@@ -2728,10 +2768,15 @@
         { src: 'assets/videos_edit/4.mp4?v=10', poster: 'assets/posters/edit_4.jpg', label: 'Ritmo Comercial y Retención' }
       ],
       reels: [
-        { src: 'assets/reels/1.mp4?v=10', poster: 'assets/posters/reels_1.jpg', label: 'Campaña Vertical 9:16 · Conversión' },
+        { src: 'assets/reels/1.mp4?v=11', poster: 'assets/posters/reels_1.jpg?v=11', label: 'Campaña Vertical 9:16 · Conversión' },
         { src: 'assets/reels/2.mp4?v=10', poster: 'assets/posters/reels_2.jpg', label: 'Hook en 3 Segundos · Retención' },
         { src: 'assets/reels/3.mp4?v=10', poster: 'assets/posters/reels_3.jpg', label: 'Formato TikTok / Reels de Pauta' },
         { src: 'assets/reels/4.mp4?v=10', poster: 'assets/posters/reels_4.jpg', label: 'Micro-Contenido de Alto Rendimiento' }
+      ],
+      marca: [
+        { src: 'assets/marca_personal/1.mp4?v=11', poster: 'assets/posters/marca_1.jpg?v=11', label: 'Estrategia & Storytelling · Marca Personal' },
+        { src: 'assets/marca_personal/2.mp4?v=11', poster: 'assets/posters/marca_2.jpg?v=11', label: 'Proceso Creativo & Estilo Urbano' },
+        { src: 'assets/marca_personal/3.mp4?v=11', poster: 'assets/posters/marca_3.jpg?v=11', label: 'Personalización & Arte · Crafting' }
       ]
     };
 
@@ -2760,7 +2805,7 @@
     }
 
     // Monitoreo de buffering y recuperación ante caídas de red
-    ['ia', 'edit', 'reels'].forEach(cat => {
+    ['ia', 'edit', 'reels', 'marca'].forEach(cat => {
       const vid = document.getElementById(`video-${cat}`);
       const card = document.getElementById(`card-${cat}`);
       if (!vid || !card) return;
@@ -2782,7 +2827,7 @@
           const video = entry.target;
           if (entry.isIntersecting) {
             // Retardo escalonado para evitar saturación simultánea de red
-            const delay = video.id === 'video-ia' ? 100 : video.id === 'video-edit' ? 350 : 600;
+            const delay = video.id === 'video-ia' ? 100 : video.id === 'video-edit' ? 300 : video.id === 'video-reels' ? 500 : 700;
             setTimeout(() => {
               if (video.paused) {
                 video.play().catch(() => {});
@@ -2799,7 +2844,7 @@
         threshold: 0.2
       });
 
-      ['video-ia', 'video-edit', 'video-reels'].forEach(id => {
+      ['video-ia', 'video-edit', 'video-reels', 'video-marca'].forEach(id => {
         const v = document.getElementById(id);
         if (v) videoSectionObserver.observe(v);
       });
