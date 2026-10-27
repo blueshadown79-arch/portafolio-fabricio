@@ -1693,7 +1693,7 @@
 
           <div class="video-card-mirror" id="card-ia">
             <div class="video-player-frame">
-              <video id="video-ia" loop playsinline muted preload="metadata" poster="assets/posters/ia_1.jpg" src="assets/videos_ia/1.mp4?v=10"></video>
+              <video id="video-ia" loop playsinline muted preload="metadata" poster="assets/posters/ia_1.jpg" src="assets/videos_ia/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1728,7 +1728,7 @@
 
           <div class="video-card-mirror" id="card-edit">
             <div class="video-player-frame">
-              <video id="video-edit" loop playsinline muted preload="metadata" poster="assets/posters/edit_1.jpg" src="assets/videos_edit/1.mp4?v=10"></video>
+              <video id="video-edit" loop playsinline muted preload="metadata" poster="assets/posters/edit_1.jpg" src="assets/videos_edit/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1760,7 +1760,7 @@
 
           <div class="video-card-mirror" id="card-reels">
             <div class="video-player-frame">
-              <video id="video-reels" loop playsinline muted preload="metadata" poster="assets/posters/reels_1.jpg?v=11" src="assets/reels/1.mp4?v=11"></video>
+              <video id="video-reels" loop playsinline muted preload="metadata" poster="assets/posters/reels_1.jpg?v=12" src="assets/reels/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1792,7 +1792,7 @@
 
           <div class="video-card-mirror" id="card-marca">
             <div class="video-player-frame">
-              <video id="video-marca" loop playsinline muted preload="metadata" poster="assets/posters/marca_1.jpg?v=11" src="assets/marca_personal/1.mp4?v=11"></video>
+              <video id="video-marca" loop playsinline muted preload="metadata" poster="assets/posters/marca_1.jpg?v=12" src="assets/marca_personal/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -2752,31 +2752,31 @@
     }
     attachHoverSfx();
 
-    // ── 4. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=10 CON POSTERS) ──
+    // ── 4. PLAYLISTS & NAVEGACIÓN DE VIDEOS (ANTI-CACHÉ ?v=12 CON POSTERS) ──
     const videoPlaylists = {
       ia: [
-        { src: 'assets/videos_ia/1.mp4?v=10', poster: 'assets/posters/ia_1.jpg', label: 'Spot Cinemático 16:9 · Dirección Visual' },
-        { src: 'assets/videos_ia/2.mp4?v=10', poster: 'assets/posters/ia_2.jpg', label: 'Composición Publicitaria con IA' },
-        { src: 'assets/videos_ia/3.mp4?v=10', poster: 'assets/posters/ia_3.jpg', label: 'Presentación Comercial IA' },
-        { src: 'assets/videos_ia/4.mp4?v=10', poster: 'assets/posters/ia_4.jpg', label: 'Efectos Avanzados de Generación' },
-        { src: 'assets/videos_ia/5.mp4?v=10', poster: 'assets/posters/ia_5.jpg', label: 'Innovación Visual y Tendencias' }
+        { src: 'assets/videos_ia/1.mp4?v=12', poster: 'assets/posters/ia_1.jpg', label: 'Spot Cinemático 16:9 · Dirección Visual' },
+        { src: 'assets/videos_ia/2.mp4?v=12', poster: 'assets/posters/ia_2.jpg', label: 'Composición Publicitaria con IA' },
+        { src: 'assets/videos_ia/3.mp4?v=12', poster: 'assets/posters/ia_3.jpg', label: 'Presentación Comercial IA' },
+        { src: 'assets/videos_ia/4.mp4?v=12', poster: 'assets/posters/ia_4.jpg', label: 'Efectos Avanzados de Generación' },
+        { src: 'assets/videos_ia/5.mp4?v=12', poster: 'assets/posters/ia_5.jpg', label: 'Innovación Visual y Tendencias' }
       ],
       edit: [
-        { src: 'assets/videos_edit/1.mp4?v=10', poster: 'assets/posters/edit_1.jpg', label: 'Spot Comercial · Clínica Mater Salud' },
-        { src: 'assets/videos_edit/2.mp4?v=10', poster: 'assets/posters/edit_2.jpg', label: 'Cortes Dinámicos de Alto Impacto' },
-        { src: 'assets/videos_edit/3.mp4?v=10', poster: 'assets/posters/edit_3.jpg', label: 'Montaje y Edición de Producto' },
-        { src: 'assets/videos_edit/4.mp4?v=10', poster: 'assets/posters/edit_4.jpg', label: 'Ritmo Comercial y Retención' }
+        { src: 'assets/videos_edit/1.mp4?v=12', poster: 'assets/posters/edit_1.jpg', label: 'Spot Comercial · Clínica Mater Salud' },
+        { src: 'assets/videos_edit/2.mp4?v=12', poster: 'assets/posters/edit_2.jpg', label: 'Cortes Dinámicos de Alto Impacto' },
+        { src: 'assets/videos_edit/3.mp4?v=12', poster: 'assets/posters/edit_3.jpg', label: 'Montaje y Edición de Producto' },
+        { src: 'assets/videos_edit/4.mp4?v=12', poster: 'assets/posters/edit_4.jpg', label: 'Ritmo Comercial y Retención' }
       ],
       reels: [
-        { src: 'assets/reels/1.mp4?v=11', poster: 'assets/posters/reels_1.jpg?v=11', label: 'Campaña Vertical 9:16 · Conversión' },
-        { src: 'assets/reels/2.mp4?v=10', poster: 'assets/posters/reels_2.jpg', label: 'Hook en 3 Segundos · Retención' },
-        { src: 'assets/reels/3.mp4?v=10', poster: 'assets/posters/reels_3.jpg', label: 'Formato TikTok / Reels de Pauta' },
-        { src: 'assets/reels/4.mp4?v=10', poster: 'assets/posters/reels_4.jpg', label: 'Micro-Contenido de Alto Rendimiento' }
+        { src: 'assets/reels/1.mp4?v=12', poster: 'assets/posters/reels_1.jpg?v=12', label: 'Campaña Vertical 9:16 · Conversión' },
+        { src: 'assets/reels/2.mp4?v=12', poster: 'assets/posters/reels_2.jpg', label: 'Hook en 3 Segundos · Retención' },
+        { src: 'assets/reels/3.mp4?v=12', poster: 'assets/posters/reels_3.jpg', label: 'Formato TikTok / Reels de Pauta' },
+        { src: 'assets/reels/4.mp4?v=12', poster: 'assets/posters/reels_4.jpg', label: 'Micro-Contenido de Alto Rendimiento' }
       ],
       marca: [
-        { src: 'assets/marca_personal/1.mp4?v=11', poster: 'assets/posters/marca_1.jpg?v=11', label: 'Estrategia & Storytelling · Marca Personal' },
-        { src: 'assets/marca_personal/2.mp4?v=11', poster: 'assets/posters/marca_2.jpg?v=11', label: 'Proceso Creativo & Estilo Urbano' },
-        { src: 'assets/marca_personal/3.mp4?v=11', poster: 'assets/posters/marca_3.jpg?v=11', label: 'Personalización & Arte · Crafting' }
+        { src: 'assets/marca_personal/1.mp4?v=12', poster: 'assets/posters/marca_1.jpg?v=12', label: 'Estrategia & Storytelling · Marca Personal' },
+        { src: 'assets/marca_personal/2.mp4?v=12', poster: 'assets/posters/marca_2.jpg?v=12', label: 'Proceso Creativo & Estilo Urbano' },
+        { src: 'assets/marca_personal/3.mp4?v=12', poster: 'assets/posters/marca_3.jpg?v=12', label: 'Personalización & Arte · Crafting' }
       ]
     };
 
