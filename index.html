@@ -1693,7 +1693,7 @@
 
           <div class="video-card-mirror" id="card-ia">
             <div class="video-player-frame">
-              <video id="video-ia" loop playsinline muted preload="metadata" poster="assets/posters/ia_1.jpg" src="assets/videos_ia/1.mp4?v=12"></video>
+              <video id="video-ia" autoplay loop playsinline webkit-playsinline muted preload="auto" poster="assets/posters/ia_1.jpg" src="assets/videos_ia/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1728,7 +1728,7 @@
 
           <div class="video-card-mirror" id="card-edit">
             <div class="video-player-frame">
-              <video id="video-edit" loop playsinline muted preload="metadata" poster="assets/posters/edit_1.jpg" src="assets/videos_edit/1.mp4?v=12"></video>
+              <video id="video-edit" autoplay loop playsinline webkit-playsinline muted preload="auto" poster="assets/posters/edit_1.jpg" src="assets/videos_edit/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1760,7 +1760,7 @@
 
           <div class="video-card-mirror" id="card-reels">
             <div class="video-player-frame">
-              <video id="video-reels" loop playsinline muted preload="metadata" poster="assets/posters/reels_1.jpg?v=12" src="assets/reels/1.mp4?v=12"></video>
+              <video id="video-reels" autoplay loop playsinline webkit-playsinline muted preload="auto" poster="assets/posters/reels_1.jpg?v=12" src="assets/reels/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -1792,7 +1792,7 @@
 
           <div class="video-card-mirror" id="card-marca">
             <div class="video-player-frame">
-              <video id="video-marca" loop playsinline muted preload="metadata" poster="assets/posters/marca_1.jpg?v=12" src="assets/marca_personal/1.mp4?v=12"></video>
+              <video id="video-marca" autoplay loop playsinline webkit-playsinline muted preload="auto" poster="assets/posters/marca_1.jpg?v=12" src="assets/marca_personal/1.mp4?v=12"></video>
             </div>
             <div class="video-loading-spinner" aria-hidden="true"></div>
 
@@ -2794,6 +2794,9 @@
       if (cardEl) cardEl.classList.add('is-buffering');
       if (item.poster) videoEl.poster = item.poster;
       videoEl.src = item.src;
+      videoEl.defaultMuted = true;
+      videoEl.muted = true;
+      videoEl.load();
       videoEl.play().catch(() => {});
       labelEl.innerText = item.label;
 
@@ -2804,15 +2807,28 @@
       });
     }
 
+    // Asegurar configuración inline y silenciado para autoplay móvil
+    const gridVideos05 = ['video-ia', 'video-edit', 'video-reels', 'video-marca'].map(id => document.getElementById(id)).filter(Boolean);
+    gridVideos05.forEach(v => {
+      v.defaultMuted = true;
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.setAttribute('webkit-playsinline', '');
+    });
+
     // Monitoreo de buffering y recuperación ante caídas de red
     ['ia', 'edit', 'reels', 'marca'].forEach(cat => {
       const vid = document.getElementById(`video-${cat}`);
       const card = document.getElementById(`card-${cat}`);
       if (!vid || !card) return;
 
-      vid.addEventListener('waiting', () => card.classList.add('is-buffering'));
-      vid.addEventListener('stalled', () => card.classList.add('is-buffering'));
+      vid.addEventListener('waiting', () => {
+        if (vid.readyState < 3) card.classList.add('is-buffering');
+      });
       vid.addEventListener('playing', () => card.classList.remove('is-buffering'));
+      vid.addEventListener('timeupdate', () => card.classList.remove('is-buffering'));
       vid.addEventListener('canplay', () => card.classList.remove('is-buffering'));
       vid.addEventListener('error', () => {
         card.classList.remove('is-buffering');
@@ -2820,35 +2836,42 @@
       });
     });
 
-    // Carga escalonada e IntersectionObserver para no saturar ancho de banda
+    // IntersectionObserver directo y reactivo
     if ('IntersectionObserver' in window) {
       const videoSectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           const video = entry.target;
           if (entry.isIntersecting) {
-            // Retardo escalonado para evitar saturación simultánea de red
-            const delay = video.id === 'video-ia' ? 100 : video.id === 'video-edit' ? 300 : video.id === 'video-reels' ? 500 : 700;
-            setTimeout(() => {
-              if (video.paused) {
-                video.play().catch(() => {});
-              }
-            }, delay);
+            if (video.paused && (!modal || !modal.classList.contains('active'))) {
+              video.play().catch(() => {});
+            }
           } else {
-            // Pausar fuera de pantalla para liberar ancho de banda y rendimiento
             if (!video.paused) {
               video.pause();
             }
           }
         });
       }, {
-        threshold: 0.2
+        threshold: 0.1
       });
 
-      ['video-ia', 'video-edit', 'video-reels', 'video-marca'].forEach(id => {
-        const v = document.getElementById(id);
-        if (v) videoSectionObserver.observe(v);
-      });
+      gridVideos05.forEach(v => videoSectionObserver.observe(v));
     }
+
+    // Despertar videos en cualquier interacción táctil, scroll o click
+    const wakeVideos05 = () => {
+      gridVideos05.forEach(v => {
+        if (v && v.paused && (!modal || !modal.classList.contains('active'))) {
+          const rect = v.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            v.play().catch(() => {});
+          }
+        }
+      });
+    };
+    ['touchstart', 'pointerdown', 'scroll', 'click'].forEach(evt => {
+      window.addEventListener(evt, wakeVideos05, { passive: true });
+    });
 
     // ── 5. LIGHTBOX MODAL FULLSCREEN ──
     const modal = document.getElementById('videoModal');
